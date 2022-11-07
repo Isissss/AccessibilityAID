@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function completed_challenges()
+    {
+        return $this->hasMany(CompletedChallenge::class);
+    }
+
+
 }
