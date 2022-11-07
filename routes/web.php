@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\FinishedChallengeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
+
+Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show']);

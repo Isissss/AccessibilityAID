@@ -46,7 +46,7 @@ class FinishedChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        //
+        return view('finished.show', compact('challenge'));
     }
 
     /**
