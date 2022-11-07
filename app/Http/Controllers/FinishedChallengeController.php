@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Challenge;
+use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class FinishedChallengeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -20,7 +22,7 @@ class FinishedChallengeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -30,8 +32,8 @@ class FinishedChallengeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -41,45 +43,32 @@ class FinishedChallengeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Challenge  $challenge
-     * @return \Illuminate\Http\Response
+     * @param Challenge $challenge
+     * @return Response
      */
     public function show(Challenge $challenge)
     {
-        return view('finished.show', compact('challenge'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Challenge  $challenge
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Challenge $challenge)
-    {
-        //
+        return view('finished.show', compact('challenge'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Challenge  $challenge
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Challenge $challenge
+     * @return Response
      */
-    public function update(Request $request, Challenge $challenge)
+    public function update(Request $request, CompletedChallenge $completedChallenge)
     {
-        //
-    }
+        $attributes = $request->validate([
+            'rating' => 'nullable|integer|min:1|max:5'
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Challenge  $challenge
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Challenge $challenge)
-    {
-        //
+        $completedChallenge->score = $attributes['rating'];
+
+        $completedChallenge->update();
+
+        return redirect(route('home'));
     }
 }

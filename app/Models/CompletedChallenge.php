@@ -9,13 +9,21 @@ class CompletedChallenge extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    protected $guarded = [
+        'id'
+    ];
 
     public function user()
     {
         return $this->belongsTo(Tip::class);
     }
 
-
+    public function challenge()
+    {
+        return $this->belongsTo(Challenge::class);
+    }
 
 
 }
