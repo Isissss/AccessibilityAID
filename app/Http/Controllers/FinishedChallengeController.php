@@ -48,7 +48,6 @@ class FinishedChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-
         return view('finished.show', compact('challenge'));
     }
 
@@ -69,6 +68,6 @@ class FinishedChallengeController extends Controller
 
         $completedChallenge->update();
 
-        return redirect(route('home'));
+        return redirect(url('/challenge/test-test/finished'));
     }
 }

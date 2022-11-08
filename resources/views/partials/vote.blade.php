@@ -1,3 +1,8 @@
+@php
+    $completedChallenge = \App\Models\CompletedChallenge::find(1)
+
+@endphp
+
 @vite(['resources/js/votehandler.js'])
 <h2>Hoe denkt u dat uw webshop scoort op dit onderdeel?</h2>
 
@@ -11,4 +16,11 @@
 @error('rating')
 <div class="alert  alert-danger">{{ $message }}</div>
 @enderror
-Uw score: <span id="count"></span>/5
+Uw score: <span id="count">{{$completedChallenge->score}}</span>/5
+
+<a href="{{route('challenge.show', $challenge)}}">Terug</a>
+<form method="POST" action="{{url('/finished', 1)}}">
+    @csrf
+    <input type="hidden" name="rating" id="rating" value="">
+    <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging (dit is test)</button>
+</form>
