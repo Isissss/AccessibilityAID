@@ -24,3 +24,7 @@ Route::get('/', function () {
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
 
 Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
