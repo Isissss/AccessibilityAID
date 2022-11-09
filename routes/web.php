@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('/challenge', ChallengeController::class);
 
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
 
