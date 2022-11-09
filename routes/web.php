@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::resource('/challenge', ChallengeController::class);
 
-Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
+//Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
 
 Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show']);
 
