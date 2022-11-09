@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+});
 
+Route::resource('/challenge', ChallengeController::class);
 
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
 Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show'])->name('completed-challenge.show');
-Route::post('/finished/{completed_challenge}', [FinishedChallengeController::class, 'update']);
+Route::post('/finished/{completed_challenge}', [FinishedChallengeController::class, 'update'])->name('completed-challenge.update');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
