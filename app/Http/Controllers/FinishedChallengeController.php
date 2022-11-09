@@ -68,6 +68,6 @@ class FinishedChallengeController extends Controller
 
         $completedChallenge->update();
 
-        return redirect(route('completed-challenge.show', $completedChallenge));
+        return redirect(route('completed-challenge.show', $completedChallenge->challenge));
     }
 }
