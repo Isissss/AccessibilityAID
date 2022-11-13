@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('challenge_id')->constrained()->cascadeOnDelete();
             $table->smallInteger('score');
             $table->text('notes');
-            $table->timestamp('started_at')->nullable();
-            $table->timestamp('completed_at')->nullable();
+            $table->timestamp('started_at')->default('2022-11-13 13:18:24' );
+            $table->timestamp('completed_at')->default('2022-11-13 13:18:24');
         });
     }
 

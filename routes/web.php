@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\FinishedChallengeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home/start', [HomeController::class, 'start'])->name('home.start');
-Route::get('home/end', [HomeController::class, 'end'])->name('home.end');
+Route::get('home/start', [TimeController::class, 'start'])->name('home.start');
+Route::get('home/end', [TimeController::class, 'end'])->name('home.end');
 
 
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
