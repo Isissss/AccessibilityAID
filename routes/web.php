@@ -21,8 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home/start', [TimeController::class, 'start'])->name('home.start');
-Route::get('home/end', [TimeController::class, 'end'])->name('home.end');
+
 
 
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
