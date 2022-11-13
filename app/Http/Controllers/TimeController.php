@@ -84,7 +84,7 @@ Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
 
 
-    //Goes into CompletedChallenge Model
+    //Go's into CompletedChallenge Model
 
     protected $casts = [
         'started_at'  => 'datetime',
