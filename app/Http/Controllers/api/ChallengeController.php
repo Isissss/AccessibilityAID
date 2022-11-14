@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Challenge;
 use Illuminate\Http\Request;
 
@@ -10,13 +11,11 @@ class ChallengeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         //
-        $challenges = Challenge::all();
-        return view('challenge.index', compact('challenges'));
     }
 
     /**
@@ -44,10 +43,12 @@ class ChallengeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Challenge  $challenge
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Challenge $challenge)
     {
-
+        //
+        return response()->json($challenge);
     }
 
     /**
