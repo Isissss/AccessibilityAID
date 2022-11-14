@@ -7,7 +7,7 @@
                 Opdrachten
             </div>
             <div id="challengeContainer" class="d-flex row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <ul class="list-group list-group-flush border-right" id="challengeList">
                         @foreach($challenges as $challenge)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -15,8 +15,8 @@
                                     <h2>Opdracht {{$challenge->id}}</h2>
                                     <h3>{{$challenge->name}}</h3>
                                 </div>
-                                <button class="btn btn-primary" data-id="{{$challenge}}" id="info">
-                        <span class="material-symbols-outlined" data-id="{{$challenge}}">
+                                <button class="btn btn-primary" data-id="{{$challenge->id}}" id="info">
+                        <span class="material-symbols-outlined" data-id="{{$challenge->id}}">
                                 info
                             </span>
                                 </button>
@@ -29,6 +29,7 @@
     </div>
 
     <script>
-        apiurl = '{{route('api.challenge', 1)}}'
+        apiurl = "api/challenge/"
+        challengeRoute = 'challenge/'
     </script>
 @endsection
