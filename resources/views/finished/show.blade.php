@@ -5,6 +5,7 @@
     <div class="container p-4 bg-white rounded card">
         <div class="row">
             <div class="col overflow-auto">
+                {{$average}}
                 <div id="tips">
                     <h2>Tips</h2>
                     <hr class="mt-2 mb-3"/>

@@ -15,6 +15,11 @@ class CompletedChallenge extends Model
         'id'
     ];
 
+    protected $casts = [
+        'started_at'  => 'datetime',
+        'completed_at'=> 'datetime',
+    ];
+
     public function user()
     {
         return $this->belongsTo(Tip::class);
