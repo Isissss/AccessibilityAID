@@ -38,7 +38,7 @@ function challengeClickHandler(e) {
 function createInfoContainer(data) {
     let challenge = document.createElement('div');
     challenge.id = 'infoContainer'
-    challenge.classList.add('col-md-7 p-1');
+    challenge.classList.add('col-md-7', 'p-1');
     container.appendChild(challenge);
 }
 
