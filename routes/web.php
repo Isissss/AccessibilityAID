@@ -21,9 +21,9 @@ Route::get('/', function () {
 
 Route::resource('/challenge', ChallengeController::class);
 
-Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');
-
-Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show'])->name('challenge.finished');
+Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
+Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show'])->name('completed-challenge.show');
+Route::post('/finished/{completed_challenge}', [FinishedChallengeController::class, 'update'])->name('completed-challenge.update');
 
 Auth::routes();
 

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
+
         Challenge::create([
             'slug' => 'contrast',
             'name' => 'Contrast',
@@ -30,12 +31,16 @@ class DatabaseSeeder extends Seeder
             'goal' => 'Zoek element ... op de pagina',
         ]);
 
-        Challenge::create([
+        $challenge = Challenge::create([
             'slug' => 'besturing',
             'name' => 'besturing',
             'description' => 'Opdracht met met tab navigatie',
             'goal' => 'Navigeer naar element ... op de pagina',
         ]);
+
+
+        $challenge->tips()->create(['content' => 'Dit is om te laten zien hoe een tip **eruit ziet**. Dit kunt u hier vinden: [Test](https://www.youtube.com/)']);
+
 
         Challenge::create([
             'slug' => 'test',
@@ -43,5 +48,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'Test opdracht',
             'goal' => 'Doe iets',
         ]);
+
     }
 }

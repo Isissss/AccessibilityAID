@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('challenge_id')->constrained()->cascadeOnDelete();
-            $table->smallInteger('score');
-            $table->text('notes');
+            $table->smallInteger('score')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamp('started_at')->nullable();
             $table->timestamp('completed_at')->nullable();
         });
