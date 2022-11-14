@@ -27,11 +27,6 @@ function challengeClickHandler(e) {
     if (clickedItem.nodeName !== 'SPAN' && clickedItem.nodeName !== 'BUTTON') {
         return;
     }
-    if (challengeInfo){
-        while (challengeInfo.firstChild){
-            challengeInfo.removeChild(challengeInfo.firstChild)
-        }
-    }
     ajax((apiurl + e.target.dataset.id), showInfo);
 }
 
@@ -44,6 +39,11 @@ function createInfoContainer(data) {
 
 function showInfo(data) {
     challengeInfo = document.getElementById('infoContainer')
+
+    if (challengeInfo) {
+        challengeInfo.innerHTML = ""
+    }
+
     let name = document.createElement('h1');
     name.innerHTML = data.name;
     challengeInfo.appendChild(name);

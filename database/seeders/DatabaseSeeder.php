@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Challenge;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,7 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-
+        //password = Gebruiker123
+        User::create([
+            'name' => 'Gebruiker',
+            'email' => 'gebruiker@gebruiker.com',
+            'password' => '$2y$10$GfSAw2yFvw//2033XKedWOCIWmAWriVZAHYDsL.WsrMZrMKnb0QmW',
+        ]);
 
         Challenge::create([
             'slug' => 'contrast',
