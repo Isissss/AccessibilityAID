@@ -60,7 +60,7 @@ class TimeController extends Controller
 
 @section('content')
 
-    @if(\Illuminate\Support\Facades\Auth::user())
+   @auth
     <form action="{{ route('home.start') }}" >
         <button>Start</button>
     </form>
@@ -72,7 +72,7 @@ class TimeController extends Controller
 
     {{$average}}
 
-@endif
+@endauth
 
 
 @endsection
