@@ -13,7 +13,6 @@ function init() {
 
 function ajax(url, succesHandler) {
     fetch(url)
-        // .then((res) => res.json())
         .then((res) => {
             return res.json()
         })
@@ -37,7 +36,6 @@ function challengeClickHandler(e) {
 }
 
 function createInfoContainer(data) {
-    console.log(data);
     let challenge = document.createElement('div');
     challenge.id = 'infoContainer'
     challenge.classList.add('col-md-7', 'p-1');

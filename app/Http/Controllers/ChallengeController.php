@@ -47,7 +47,7 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-
+        return view('challenge.show', compact('challenge'));
     }
 
     /**

@@ -16,9 +16,7 @@
                                     <h3>{{$challenge->name}}</h3>
                                 </div>
                                 <button class="btn btn-primary" data-id="{{$challenge->id}}" id="info">
-                        <span class="material-symbols-outlined" data-id="{{$challenge->id}}">
-                                info
-                            </span>
+                                    <span class="material-symbols-outlined" data-id="{{$challenge->id}}">info</span>
                                 </button>
                             </li>
                         @endforeach
