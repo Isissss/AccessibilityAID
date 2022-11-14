@@ -1,12 +1,12 @@
 @extends('layouts.web')
 
 @section('content')
-    <header class="p-3 w-100 bg-primary d-flex flex-row align-items-center justify-content-between">
+    <header class="p-3 w-100 bg-primary d-flex flex-row align-items-center justify-content-between header-color">
         <a href="" class="text-decoration-none text-black"><h1>Webshop</h1></a>
         <div class="col-md-5 d-flex align-items-center gap-2">
             <label for="search" class="fw-bold">Zoeken:</label>
             <input id="search" type="text" class="form-control">
-            <button class="btn btn-primary">Zoeken</button>
+            <button class="btn btn-primary nav-color">Zoeken</button>
         </div>
         <a href="" class="d-flex align-items-center text-decoration-none text-black">
             <svg class="svg-icon" viewBox="0 0 20 20" width="32" height="32">
@@ -16,7 +16,7 @@
             <div>Profiel</div>
         </a>
     </header>
-    <nav class="d-flex flex-row bg-info p-1 px-3 gap-4">
+    <nav class="d-flex flex-row bg-info p-1 px-3 gap-4 nav-color">
         <a href="" class="text-decoration-none text-black"><h4 class="mt-2">Categorie 1</h4></a>
         <a href="" class="text-decoration-none text-black"><h4 class="mt-2">Categorie 2</h4></a>
         <a href="" class="text-decoration-none text-black"><h4 class="mt-2">Categorie 3</h4></a>
@@ -51,106 +51,7 @@
                     <img
                         src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
                         alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
-                        <h3>Product 1</h3>
-                        <a href="" class="stretched-link opacity-0">Product 1</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card">
-                    <img
-                        src="https://www.mountaingoatsoftware.com/uploads/blog/2016-09-06-what-is-a-product.png"
-                        alt="" class="card-img top">
-                    <div class="card-body">
+                    <div class="card-body ">
                         <h3>Product 1</h3>
                         <a href="" class="stretched-link opacity-0">Product 1</a>
                     </div>
