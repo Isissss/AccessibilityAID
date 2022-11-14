@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\FinishedChallengeController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,12 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/challenge', ChallengeController::class);
 
-
-
-Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show']);
-
-Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show']);
+Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
+Route::get('/challenge/{challenge:slug}/finished', [FinishedChallengeController::class, 'show'])->name('completed-challenge.show');
+Route::post('/finished/{completed_challenge}', [FinishedChallengeController::class, 'update'])->name('completed-challenge.update');
 
 Auth::routes();
 
