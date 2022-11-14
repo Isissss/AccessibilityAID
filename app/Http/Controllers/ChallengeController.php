@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Challenge;
+use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ChallengeController extends Controller
 {
@@ -47,6 +49,13 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
+        $challengetest = auth()->user()->completed_challenges()->firstOrCreate([
+            'challenge_id' => $challenge->id,
+        ]);
+
+        $challengetest->started_at = Carbon::now();
+        $challengetest->save();
+
         return view('challenge.show', compact('challenge'));
     }
 
