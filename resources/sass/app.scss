@@ -7,6 +7,11 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+
+#voting {
+    font-size:35px;
+}
+
 .card-color {
     background: black;
 }
@@ -46,3 +51,4 @@
 .border-right {
     border-right: 1px solid #dee2e6;
 }
+

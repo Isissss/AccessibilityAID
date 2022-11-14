@@ -40,6 +40,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'started_at'  => 'datetime',
+        'ended_at'=> 'datetime',
     ];
 
     public function completed_challenges()
