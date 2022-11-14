@@ -7,6 +7,37 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+.card-color {
+    background: black;
+}
+
+.black-50 {
+    background: rgb(50,50,50) !important;
+}
+
+.border-black-50 {
+    border-color: rgb(65,65,65) !important;
+}
+
+.black-65 {
+    background: rgb(65,65,65) !important;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.custom-range::-webkit-slider-thumb {
+    background-color: gray;
+}
+
+.label-text {
+    color: #212529;
+}
+
+.label-text:hover {
+    color: #212529;
+
 #voting {
     font-size:35px;
 }
