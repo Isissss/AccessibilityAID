@@ -36,7 +36,7 @@
                 <h2><label for="lengteRange" class="form-label">Lengte</label></h2>
                 <input type="range" class="form-range custom-range" id="lengteRange">
             </div>
-            <a href="{{route('challenge.finished', $challenge)}}" class="text-decoration-none label-text">
+            <a href="{{route('completed-challenge.show', $challenge)}}" class="text-decoration-none label-text">
                 <div class="form-group">
                     <h2><label for="breedteRange" class="form-label">Breedte</label></h2>
                     <input type="range" class="form-range custom-range" id="breedteRange">

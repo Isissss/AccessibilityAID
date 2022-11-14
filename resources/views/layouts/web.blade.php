@@ -10,7 +10,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-<main class="py-4">
+<main>
     @yield('content')
 </main>
 </body>
