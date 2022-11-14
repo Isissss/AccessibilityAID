@@ -60,7 +60,7 @@ class CompletedChallengeController extends Controller
         $average1 = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
         $average = CarbonInterval::seconds($average1)->cascade()->forHumans();
 
-        return view('finished.show', compact('challenge', 'average'));
+        return view('finished.show', compact('challenge', 'average', 'completedChallenge'));
     }
 
     /**
@@ -72,6 +72,8 @@ class CompletedChallengeController extends Controller
      */
     public function update(Request $request, CompletedChallenge $completedChallenge)
     {
+        // TO-DO: Rename function and eventually store notes too.
+
         $attributes = $request->validate([
             'rating' => 'nullable|integer|min:1|max:5'
         ]);
@@ -80,6 +82,6 @@ class CompletedChallengeController extends Controller
 
         $completedChallenge->update();
 
-        return redirect(route('completed-challenge.show', $completedChallenge->challenge));
+        return redirect(route('challenge.index'));
     }
 }

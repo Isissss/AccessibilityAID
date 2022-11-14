@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@vite(['resources/js/votehandler.js'])
 
 @section('content')
 
@@ -13,7 +14,6 @@
                     @foreach($challenge->tips as $tip)
                             <li> {!! Str::markdown($tip->content) !!} </li>
                     @endforeach
-
                     </ul>
                 </div>
             </div>
@@ -30,12 +30,6 @@
 
         </div>
         <div class="align-content-center text-center py-4">
-            @php
-                $completedChallenge = \App\Models\CompletedChallenge::find(2)
-
-            @endphp
-
-            @vite(['resources/js/votehandler.js'])
             <h3>Hoe denkt u dat uw webshop scoort op dit onderdeel?</h3>
 
             <div id="voting">
@@ -51,7 +45,7 @@
             Uw score: <span id="count">{{$completedChallenge?->score}}</span>/5
 
             <a href="{{route('challenge.show', $challenge)}}">Terug</a>
-            <form method="POST" action="{{url('/finished', 2)}}">
+            <form method="POST" action="{{route('completed-challenge.update', $completedChallenge)}}">
                 @csrf
                 <input type="hidden" name="rating" id="rating" value="">
                 <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging (dit is test)</button>
