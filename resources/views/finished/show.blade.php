@@ -5,9 +5,9 @@
 
     <div class="container p-4 bg-white rounded card">
         <div class="d-flex align-items-center">
-            <h1>
+            <h3>
                 <span class="material-symbols-outlined">schedule</span> {{$average}}
-            </h1>
+            </h3>
         </div>
         <div class="row">
             <div class="col overflow-auto">
@@ -25,8 +25,8 @@
                 <h2>Voorbeelden</h2>
                 <hr class="mt-2 mb-3"/>
                 <div class="row">
-                    {{--                    << Hier komen voorbeeld 1 >>--}}
-                    <img src="{{asset('storage/images/contrast_example.png')}}" alt="">
+                    Voorbeeld van een toegankelijke website waar het contrast goed is:
+                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example.png')}}" alt="Voorbeeld van toegankelijke website">
                 </div>
                 <div class="row border border-danger">
                     << Hier komen voorbeeld 2 >>
