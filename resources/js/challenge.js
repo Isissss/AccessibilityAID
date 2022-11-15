@@ -6,9 +6,7 @@ let challengeInfo;
 function init() {
     let list = document.getElementById('challengeList');
     container = document.getElementById('challengeContainer');
-    let details = document.getElementById('info');
     list.addEventListener('click', challengeClickHandler);
-    createInfoContainer();
 }
 
 function ajax(url, succesHandler) {
@@ -28,6 +26,11 @@ function challengeClickHandler(e) {
         return;
     }
     ajax((apiurl + e.target.dataset.id), showInfo);
+
+    if (!document.getElementById('infoContainer')) {
+        createInfoContainer();
+    }
+
 }
 
 function createInfoContainer(data) {
@@ -35,6 +38,7 @@ function createInfoContainer(data) {
     challenge.id = 'infoContainer'
     challenge.classList.add('col-md-7', 'p-1');
     container.appendChild(challenge);
+    document.getElementById('ChallengeListLeft').classList.add('col-md-4')
 }
 
 function showInfo(data) {
