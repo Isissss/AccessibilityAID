@@ -7,7 +7,7 @@
                 Opdrachten
             </div>
             <div id="challengeContainer" class="d-flex row">
-                <div class="col-md-4">
+                <div id="ChallengeListLeft">
                     <ul class="list-group list-group-flush border-right" id="challengeList">
                         @foreach($challenges as $challenge)
                             <li class="list-group-item d-flex justify-content-between align-items-center">
