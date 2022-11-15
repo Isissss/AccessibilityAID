@@ -25,8 +25,8 @@
                 <h2>Voorbeelden</h2>
                 <hr class="mt-2 mb-3"/>
                 <div class="row">
-                    {{--                    << Hier komen voorbeeld 1 >>--}}
-                    <img src="{{asset('storage/images/contrast_example.png')}}" alt="">
+                    Voorbeeld van een toegankelijke website waar het contrast goed is:
+                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example.png')}}" alt="Voorbeeld van toegankelijke website">
                 </div>
                 <div class="row border border-danger">
                     << Hier komen voorbeeld 2 >>
