@@ -30,14 +30,14 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$10$GfSAw2yFvw//2033XKedWOCIWmAWriVZAHYDsL.WsrMZrMKnb0QmW',
         ]);
 
-        Challenge::create([
+        $challenge = Challenge::create([
             'slug' => 'contrast',
             'name' => 'Contrast',
             'description' => 'Opdracht met contrast problemen',
-            'goal' => 'Zoek element ... op de pagina',
+            'goal' => 'Zoek de breedte filter op de website en klik er op',
         ]);
 
-        $challenge = Challenge::create([
+        Challenge::create([
             'slug' => 'besturing',
             'name' => 'besturing',
             'description' => 'Opdracht met met tab navigatie',
@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
 
 
         $challenge->tips()->create(['content' => 'Dit is om te laten zien hoe een tip **eruit ziet**. Dit kunt u hier vinden: [Test](https://www.youtube.com/)']);
+        $challenge->tips()->create(['content' => 'Op ** deze website ** check je hoe het zit met de contrast op uw website . Deze kleurentest vind je [hier](https://www.youtube.com/)']);
 
 
         Challenge::create([

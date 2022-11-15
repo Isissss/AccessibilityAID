@@ -5,9 +5,9 @@
 
     <div class="container p-4 bg-white rounded card">
         <div class="d-flex align-items-center">
-            <h1>
+            <h3>
                 <span class="material-symbols-outlined">schedule</span> {{$average}}
-            </h1>
+            </h3>
         </div>
         <div class="row">
             <div class="col overflow-auto">
