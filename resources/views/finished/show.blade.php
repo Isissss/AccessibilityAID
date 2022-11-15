@@ -4,24 +4,29 @@
 @section('content')
 
     <div class="container p-4 bg-white rounded card">
+        <div class="d-flex align-items-center">
+            <h1>
+                <span class="material-symbols-outlined">schedule</span> {{$average}}
+            </h1>
+        </div>
         <div class="row">
             <div class="col overflow-auto">
-                {{$average}}
                 <div id="tips">
                     <h2>Tips</h2>
                     <hr class="mt-2 mb-3"/>
                     <ul>
-                    @foreach($challenge->tips as $tip)
+                        @foreach($challenge->tips as $tip)
                             <li> {!! Str::markdown($tip->content) !!} </li>
-                    @endforeach
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col">
                 <h2>Voorbeelden</h2>
                 <hr class="mt-2 mb-3"/>
-                <div class="row border border-danger">
-                    << Hier komen voorbeeld 1 >>
+                <div class="row">
+                    {{--                    << Hier komen voorbeeld 1 >>--}}
+                    <img src="{{asset('storage/images/contrast_example.png')}}" alt="">
                 </div>
                 <div class="row border border-danger">
                     << Hier komen voorbeeld 2 >>
@@ -48,11 +53,11 @@
             <form method="POST" action="{{route('completed-challenge.update', $completedChallenge)}}">
                 @csrf
                 <input type="hidden" name="rating" id="rating" value="">
-                <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging (dit is test)</button>
+                <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging.</button>
             </form>
         </div>
-     << Hier komt feedback >>
-        </div>
+        << Hier komt feedback >>
+    </div>
 @endsection
 
 
