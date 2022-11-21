@@ -9,6 +9,7 @@ use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class CompletedChallengeController extends Controller
 {
@@ -51,9 +52,10 @@ class CompletedChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        $completedChallenge = CompletedChallenge::where('challenge_id', '=', $challenge->id)
-            ->where('user_id', '=', Auth::user()->id)
-            ->first();
+//        $completedChallenge = CompletedChallenge::where('challenge_id', '=', $challenge->id)
+//            ->where('user_id', '=', Auth::user()->id)
+//            ->first();
+        $completedChallenge = CompletedChallenge::find(Session::get('completed_challenge_id'));
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
 

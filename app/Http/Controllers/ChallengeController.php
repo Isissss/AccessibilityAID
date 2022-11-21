@@ -6,6 +6,7 @@ use App\Models\Challenge;
 use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class ChallengeController extends Controller
 {
@@ -49,13 +50,19 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
+//        $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
+//            'challenge_id' => $challenge->id,
+//        ]);
+//
+//        $completedChallenge->started_at = Carbon::now();
+//        $completedChallenge->save();
+        $completedChallenge = new CompletedChallenge([
+            'user_id' => auth()->user()->id,
             'challenge_id' => $challenge->id,
+            'started_at' => Carbon::now()
         ]);
-
-        $completedChallenge->started_at = Carbon::now();
         $completedChallenge->save();
-
+        Session::put('completed_challenge_id', $completedChallenge->id);
         return view('challenge.show', compact('challenge'));
     }
 
