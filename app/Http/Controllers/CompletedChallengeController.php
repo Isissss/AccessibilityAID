@@ -16,11 +16,13 @@ class CompletedChallengeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index($id)
     {
         //
+        $results = CompletedChallenge::where('user_id', '=', $id)->get();
+        return view('profile.index', compact('results'));
     }
 
     /**
