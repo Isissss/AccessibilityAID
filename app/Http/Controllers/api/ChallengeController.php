@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Challenge;
 use Illuminate\Http\Request;
 
-class FinishedChallengeController extends Controller
+class ChallengeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,11 +43,12 @@ class FinishedChallengeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Challenge  $challenge
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Challenge $challenge)
     {
-        return view('finished.show', compact('challenge'));
+        //
+        return response()->json($challenge);
     }
 
     /**

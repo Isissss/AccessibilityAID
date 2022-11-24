@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Challenge;
+use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ChallengeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
         //
+        $challenges = Challenge::all();
+        return view('challenge.index', compact('challenges'));
     }
 
     /**
@@ -45,6 +49,13 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
+        $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
+            'challenge_id' => $challenge->id,
+        ]);
+
+        $completedChallenge->started_at = Carbon::now();
+        $completedChallenge->save();
+
         return view('challenge.show', compact('challenge'));
     }
 
