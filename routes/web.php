@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\CompletedChallengeController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::get('/challenge/{challenge:slug}/finished', [CompletedChallengeController
 Route::post('/finished/{completed_challenge}', [CompletedChallengeController::class, 'update'])->name('completed-challenge.update');
 Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
+Route::resource('/reviews', ReviewsController::class);
 
 Auth::routes();
 
