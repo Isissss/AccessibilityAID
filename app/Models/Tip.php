@@ -9,6 +9,8 @@ class Tip extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['content', 'challenge_id'];
+
     public function challenge()
     {
         return $this->belongsTo(Challenge::class);
