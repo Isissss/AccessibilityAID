@@ -15,7 +15,7 @@ class ProcessRapportEmail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $user;
-
+    private $session;
     /**
      * Create a new job instance.
      *
@@ -23,6 +23,7 @@ class ProcessRapportEmail implements ShouldQueue
      */
     public function __construct()
     {
+        $this->session = auth()->user()->session;
         $this->user = auth()->user();
     }
 
@@ -33,7 +34,8 @@ class ProcessRapportEmail implements ShouldQueue
      */
     public function handle()
     {
-        $challenges = CompletedChallenge::where('user_id', '=', $this->user->id)->get();
+        // Collect all challenges for rapport.
+        $challenges = CompletedChallenge::where('user_id', '=', $this->user->id)->where('session', '=', $this->session)->get();
 
         Mail::to($this->user->email)->send(new RapportMail($challenges));
     }
