@@ -11,8 +11,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
-class ProcessReport implements ShouldQueue
+use Illuminate\Support\Facades\RateLimiter;
+class ProcessRapportEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -35,6 +35,7 @@ class ProcessReport implements ShouldQueue
     public function handle()
     {
        $rapport =  \App\Models\CompletedChallenge::where('user_id', '=', $this->user->id)->get();
+
         Mail::to($this->user->email)->send(new RapportMail($rapport));
     }
 }

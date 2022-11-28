@@ -54,11 +54,14 @@ class CompletedChallengeController extends Controller
         $completedChallenge = CompletedChallenge::where('challenge_id', '=', $challenge->id)
             ->where('user_id', '=', Auth::user()->id)
             ->first();
+
+        if(!$completedChallenge->completed_at) {
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
+        }
 
-        $average1 = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
-        $average = CarbonInterval::seconds($average1)->cascade()->forHumans();
+        $average = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
+        $average = CarbonInterval::seconds($average)->cascade()->forHumans();
 
         return view('finished.show', compact('challenge', 'average', 'completedChallenge'));
     }

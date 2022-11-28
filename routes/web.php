@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\CompletedChallengeController;
-use App\Http\Controllers\PDFController;
+use App\Http\Controllers\RapportController;
 use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -21,16 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('send-email-pdf', PDFController::class);
-Route::get('show-email-pdf', function () {
+Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
+Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
 
-    $rapport = \App\Models\CompletedChallenge::where('user_id', '=', auth()->id())->with('challenge')->orderby('score')->get();
-
-
-
-//    return new App\Mail\RapportMail();
-    return view('emails.pdf', compact('rapport' ));
-});
 Route::resource('/challenge', ChallengeController::class);
 
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
