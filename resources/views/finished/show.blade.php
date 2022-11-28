@@ -12,18 +12,24 @@
         <div class="row">
             <div class="col overflow-auto">
                 <div id="tips">
-                    <h2>Tips <a class="btn btn-primary" href="{{ route('adminTips.create') }}">Create</a></h2>
+                    <h2>Tips
+                        @if(Auth::user()->admin)
+                        <a class="btn btn-primary" href="{{route('adminTips.create')}}">Create</a>
+                        @endif
+                    </h2>
                     <hr class="mt-2 mb-3"/>
                     <ul>
                         @foreach($challenge->tips as $tip)
-                            <li> {!! Str::markdown($tip->content) !!}</li>
-                                <form action="{{route('adminTips.destroy',$tip->id)}}" method="Post">
-                                    <a class="btn btn-primary" href="{{ route('adminTips.edit',$tip->id)}}">Edit</a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-
+                            <li> {!! Str::markdown($tip->content) !!}
+                                @if(Auth::user()->admin)
+                                    <form action="{{route('adminTips.destroy',$tip->id)}}" method="Post">
+                                        <a class="btn btn-primary" href="{{ route('adminTips.edit',$tip->id)}}">Edit</a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                @endif
+                            </li>
 
                         @endforeach
                     </ul>

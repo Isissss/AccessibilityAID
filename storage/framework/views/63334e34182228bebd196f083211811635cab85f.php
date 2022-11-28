@@ -12,18 +12,25 @@
         <div class="row">
             <div class="col overflow-auto">
                 <div id="tips">
-                    <h2>Tips <a class="btn btn-primary" href="<?php echo e(route('adminTips.create')); ?>">Create</a></h2>
+                    <h2>Tips
+                        <?php if(Auth::user()->admin): ?>
+                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.create')); ?>">Create</a>
+                        <?php endif; ?>
+                    </h2>
                     <hr class="mt-2 mb-3"/>
                     <ul>
                         <?php $__currentLoopData = $challenge->tips; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tip): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <li> <?php echo Str::markdown($tip->content); ?></li>
-                                <form action="<?php echo e(route('adminTips.destroy',$tip->id)); ?>" method="Post">
-                                    <a class="btn btn-primary" href="<?php echo e(route('adminTips.edit',$tip->id)); ?>">Edit</a>
-                                    <?php echo csrf_field(); ?>
-                                    <?php echo method_field('DELETE'); ?>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                            <li> <?php echo Str::markdown($tip->content); ?>
 
+                                <?php if(Auth::user()->admin): ?>
+                                    <form action="<?php echo e(route('adminTips.destroy',$tip->id)); ?>" method="Post">
+                                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.edit',$tip->id)); ?>">Edit</a>
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                <?php endif; ?>
+                            </li>
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>

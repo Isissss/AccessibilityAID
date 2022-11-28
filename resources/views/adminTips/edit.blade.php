@@ -21,20 +21,20 @@
     </div>
     @if(session('status'))
         <div class="alert alert-success mb-1 mt-1">
-            {{ session('status') }}
+            {{session('status')}}
         </div>
     @endif
-    <form action="{{ route('admin.update',$admin->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('adminTips.update',$adminTip->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    <input type="text" name="content" value="{{ $admin->content }}" class="form-control"
+                    <input type="text" name="content" value="{{$adminTip->content}}" class="form-control"
                            placeholder="Content">
                     @error('content')
-                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
                     @enderror
                 </div>
             </div>
