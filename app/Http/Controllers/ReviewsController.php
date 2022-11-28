@@ -18,4 +18,11 @@ class ReviewsController extends Controller
         $review = Review::find($id);
         return view('reviews.show', compact('review'));
     }
+
+    public function destroy(Review $review)
+    {
+        $review->delete();
+        return redirect()->route('reviews.index')->with('success', 'Build has been deleted successfully');
+
+    }
 }

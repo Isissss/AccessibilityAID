@@ -29,7 +29,12 @@ Route::get('/challenge/{challenge:slug}/finished', [CompletedChallengeController
 Route::post('/finished/{completed_challenge}', [CompletedChallengeController::class, 'update'])->name('completed-challenge.update');
 Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
-Route::resource('/reviews', ReviewsController::class);
+
+
+Route::middleware(['auth','role_admin'])->group(function (){
+    Route::resource('reviews', ReviewsController::class);
+
+});
 
 Auth::routes();
 

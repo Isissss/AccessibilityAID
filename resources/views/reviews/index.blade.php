@@ -12,6 +12,13 @@
                         <span class="card-title">{{ $review->user->name }} </span>
                         <p class="card-text">Review:</p>
                         <p class="card-text">{{$review->content}}</p>
+
+                        <form action="{{ route('reviews.destroy',$review->id) }}" method="Post">
+                            <a class="btn btn-primary" href="{{ route('reviews.show',$review->id) }}">show</a>
+                        @csrf
+                        @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>
