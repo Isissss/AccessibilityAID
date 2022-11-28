@@ -3,20 +3,19 @@
 namespace App\Jobs;
 
 use App\Mail\RapportMail;
+use App\Models\CompletedChallenge;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\RateLimiter;
 class ProcessRapportEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private $user;
+
     /**
      * Create a new job instance.
      *
@@ -24,7 +23,7 @@ class ProcessRapportEmail implements ShouldQueue
      */
     public function __construct()
     {
-    $this->user = auth()->user();
+        $this->user = auth()->user();
     }
 
     /**
@@ -34,8 +33,8 @@ class ProcessRapportEmail implements ShouldQueue
      */
     public function handle()
     {
-       $rapport =  \App\Models\CompletedChallenge::where('user_id', '=', $this->user->id)->get();
+        $challenges = CompletedChallenge::where('user_id', '=', $this->user->id)->get();
 
-        Mail::to($this->user->email)->send(new RapportMail($rapport));
+        Mail::to($this->user->email)->send(new RapportMail($challenges));
     }
 }

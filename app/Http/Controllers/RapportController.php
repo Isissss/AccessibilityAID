@@ -36,10 +36,10 @@ class RapportController extends Controller
             'session' => 'required|integer'
         ]);
 
-        $rapport = CompletedChallenge::where('user_id', '=', auth()->id())->where('session', '=', $session)->get();
+        $challenges = CompletedChallenge::where('user_id', '=', auth()->id())->where('session', '=', $session)->get();
 
         $pdf = new Dompdf();
-        $pdf->loadHtml(view('emails.pdf', compact('rapport')));
+        $pdf->loadHtml(view('emails.pdf', compact('challenges')));
         $pdf->render();
         $pdf->stream('rapport.pdf');
     }

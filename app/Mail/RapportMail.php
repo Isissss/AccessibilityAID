@@ -30,11 +30,10 @@ class RapportMail extends Mailable implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($rapport)
+    public function __construct($challenges)
     {
-        $this->rapport = $rapport;
         $this->connection = 'database';
-        $this->pdf = base64_encode(PDF::loadView('emails.pdf', compact('rapport'))->output());
+        $this->pdf = base64_encode(PDF::loadView('emails.pdf', compact('challenges'))->output());
     }
 
     /**

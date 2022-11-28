@@ -98,15 +98,15 @@
     </h1>
     <hr>
 
-    <x-rapport-table :challenges="$rapport->whereIn('score', [1,2])->all()" message="Dit vereist nog veel aandacht:"
+    <x-rapport-table :challenges="$challenges->whereIn('score', [1,2])->all()" message="Dit vereist nog veel aandacht:"
                      color="red"/>
-    <x-rapport-table :challenges="$rapport->whereIn('score', [3])->all()" message="Kijk nog even goed naar:"
+    <x-rapport-table :challenges="$challenges->whereIn('score', [3])->all()" message="Kijk nog even goed naar:"
                      color="orange"/>
-    <x-rapport-table :challenges="$rapport->whereIn('score', [4,5])->all()" message="Goed bezig!" color="green"/>
+    <x-rapport-table :challenges="$challenges->whereIn('score', [4,5])->all()" message="Goed bezig!" color="green"/>
 
     <hr>
 
-    @foreach($rapport as $challenge)
+    @foreach($challenges as $challenge)
         <div class="challenge-container">
             <h3>Opdracht {{$challenge->challenge->id}} - {{$challenge->challenge->name}} ({{$challenge->score}}/5)</h3>
             <span class="underTitle">Voltooid op <time>{{$challenge->completed_at->isoFormat('D/M/YY')}}</time></span><br><br>
