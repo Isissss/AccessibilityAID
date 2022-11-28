@@ -33,6 +33,7 @@ Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
 Route::middleware(['auth','role_admin'])->group(function (){
     Route::resource('reviews', ReviewsController::class);
+    Route::post('reviews/search', [ReviewsController::class, 'search'])->name('reviews.search');
 
 });
 

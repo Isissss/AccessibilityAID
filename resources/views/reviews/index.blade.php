@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <form action="{{route('reviews.search')}}" method="post">
+        @csrf
+        <label for="search">Search:</label>
+        <input id="search" type="text" name="search">
+        <input name="submit" type="submit" class="btn btn-primary"/>
+    </form>
     <div class="row justify-content-center g-2">
         @foreach($reviews as $review)
             <div class="col-sm-2">
