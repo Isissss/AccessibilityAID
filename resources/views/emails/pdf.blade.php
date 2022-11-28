@@ -90,7 +90,7 @@
 </head>
 <body>
 <header>
-    <img src="https://www.accessibility.nl/themes/sa/images/logo-social.png" class="logo" alt="Laravel Logo">
+    <img src="https://www.accessibility.nl/themes/sa/images/logo-social.png" class="logo" alt="Accessibility Logo">
 </header>
 <div style="padding:25px; background-color:white; color:black;">
     <h1>Rapport -
