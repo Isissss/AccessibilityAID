@@ -22,8 +22,8 @@
                         @foreach($challenge->tips as $tip)
                             <li> {!! Str::markdown($tip->content) !!}
                                 @if(Auth::user()->admin)
-                                    <form action="{{route('adminTips.destroy',$tip->id)}}" method="Post">
-                                        <a class="btn btn-primary" href="{{ route('adminTips.edit',$tip->id)}}">Edit</a>
+                                    <form action="{{route('adminTips.destroy', $tip)}}" method="Post">
+                                        <a class="btn btn-primary" href="{{route('adminTips.edit',$tip)}}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

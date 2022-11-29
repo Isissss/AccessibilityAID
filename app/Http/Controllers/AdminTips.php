@@ -16,12 +16,12 @@ class AdminTips extends Controller
 
     public function edit(Tip $adminTip, Challenge $challenge){
 
-
         return view('adminTips.edit', compact('adminTip', 'challenge'));
     }
 
     public function store(Request $request)
     {
+
         $request->validate([
             'content' => 'required',
             'challenge_id' => 'required',
@@ -30,11 +30,13 @@ class AdminTips extends Controller
         Tip::create($request->post());
 
 
-        return redirect()->route('weapons.index')->with('success', 'Tip has been created successfully.');
+        return redirect('/challenge/Contrast/finished');
     }
 
     public function update(Request $request, Tip $adminTip)
     {
+        $challenge = $adminTip->challenge->name;
+
         $request->validate([
             'content' => 'required',
 
@@ -42,12 +44,18 @@ class AdminTips extends Controller
 
         $adminTip->update($request->all());
 
+        return redirect(route('completed-challenge.show', $challenge));
+
+
     }
 
-    public function destroy(Tip $adminTip, Challenge $challenge)
+    public function destroy(Tip $adminTip)
     {
+        $challenge = $adminTip->challenge->name;
+
         $adminTip->delete();
-        return redirect()->route('completed-challenge.show', $challenge)->with('success', 'Tip has been deleted successfully');
+
+        return redirect(route('completed-challenge.show', $challenge));
 
     }
 
