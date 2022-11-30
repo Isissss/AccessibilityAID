@@ -31,7 +31,6 @@ Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
 Route::middleware(['auth','role_admin'])->group(function (){
-    Route::get('/adinTips/create/{id}', [AdminTips::class, 'create']);
     Route::resource('adminTips', AdminTips::class);
 });
 
