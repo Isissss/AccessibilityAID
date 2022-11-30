@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$review->challenge->name}}</h5>
                         <p class="font-bold">User:
-                        <span class="card-title">{{ $review->user->name }} </span>
+                        <span class="card-title">{{$review->user->name}} </span>
                         <p class="card-text">Review:</p>
                         <p class="card-text">{{$review->content}}</p>
 
