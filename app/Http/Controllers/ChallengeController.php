@@ -51,6 +51,7 @@ class ChallengeController extends Controller
     {
         $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
             'challenge_id' => $challenge->id,
+            'session' => auth()->user()->session
         ]);
 
         $completedChallenge->started_at = Carbon::now();
