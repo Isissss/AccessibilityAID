@@ -51,18 +51,12 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-//        $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
-//            'challenge_id' => $challenge->id,
-//        ]);
-//
-//        $completedChallenge->started_at = Carbon::now();
-//        $completedChallenge->save();
         $personalFeedback = new PersonalFeedback;
         $personalFeedback->save();
         $completedChallenge = new CompletedChallenge([
             'user_id' => auth()->user()->id,
             'challenge_id' => $challenge->id,
-            'personal_feedback_id' => $personalFeedback->id,
+            'personal_feedback_id' => $personalFeedback?->id,
             'started_at' => Carbon::now()
         ]);
         $completedChallenge->save();

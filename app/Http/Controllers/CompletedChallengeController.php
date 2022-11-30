@@ -55,10 +55,7 @@ class CompletedChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-//        $completedChallenge = CompletedChallenge::where('challenge_id', '=', $challenge->id)
-//            ->where('user_id', '=', Auth::user()->id)
-//            ->first();
-        $completedChallenge = CompletedChallenge::find(Session::get('completed_challenge_id'));
+        $completedChallenge = CompletedChallenge::findOrFail(Session::get('completed_challenge_id'));
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
 
@@ -86,7 +83,7 @@ class CompletedChallengeController extends Controller
 //        ]);
 //
 //        $completedChallenge->score = $attributes['rating'];
-        $feedback = PersonalFeedback::find($completedChallenge->personal_feedback_id);
+        $feedback = PersonalFeedback::findOrFail($completedChallenge->personal_feedback_id);
         $feedback->feedback_1 = $request->has('feedback_1');
         $feedback->feedback_2 = $request->has('feedback_2');
         $feedback->feedback_3 = $request->has('feedback_3');
