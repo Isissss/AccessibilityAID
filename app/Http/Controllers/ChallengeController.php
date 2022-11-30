@@ -29,6 +29,7 @@ class ChallengeController extends Controller
     public function create()
     {
         //
+        
     }
 
     /**

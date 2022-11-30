@@ -14,7 +14,7 @@
                 <div id="tips">
                     <h2>Tips
                         @if(Auth::user()->admin)
-                        <a class="btn btn-primary" href="{{route('adminTips.create')}}">Create</a>
+                        <a class="btn btn-primary" href="{{route('adminTips.create', ['id' => $challenge->id])}}">Create</a>
                         @endif
                     </h2>
                     <hr class="mt-2 mb-3"/>
@@ -23,7 +23,7 @@
                             <li> {!! Str::markdown($tip->content) !!}
                                 @if(Auth::user()->admin)
                                     <form action="{{route('adminTips.destroy', $tip)}}" method="Post">
-                                        <a class="btn btn-primary" href="{{route('adminTips.edit',$tip)}}">Edit</a>
+                                        <a class="btn btn-primary" href="{{route('adminTips.edit', $tip)}}">Edit</a>
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

@@ -9,34 +9,34 @@ use Illuminate\Http\Request;
 class AdminTips extends Controller
 {
 
-    public function create(Tip $admin){
+    public function create(Tip $admin, Request $request){
 
-        return view('adminTips.create', compact('admin'));
+
+        return view('adminTips.create', compact('admin' , 'request'));
     }
 
     public function edit(Tip $adminTip, Challenge $challenge){
+
+        dd($adminTip);
 
         return view('adminTips.edit', compact('adminTip', 'challenge'));
     }
 
     public function store(Request $request)
     {
-
-        $request->validate([
+        $attributes = $request->validate([
             'content' => 'required',
             'challenge_id' => 'required',
         ]);
 
-        Tip::create($request->post());
+        $tip = Tip::create($attributes);
 
 
-        return redirect('/challenge/Contrast/finished');
+        return redirect(route('completed-challenge.show', $tip->challenge));
     }
 
     public function update(Request $request, Tip $adminTip)
     {
-        $challenge = $adminTip->challenge->name;
-
         $request->validate([
             'content' => 'required',
 
@@ -44,18 +44,16 @@ class AdminTips extends Controller
 
         $adminTip->update($request->all());
 
-        return redirect(route('completed-challenge.show', $challenge));
+        return redirect(route('completed-challenge.show', $adminTip->challenge));
 
 
     }
 
     public function destroy(Tip $adminTip)
-    {
-        $challenge = $adminTip->challenge->name;
-
+    {;
         $adminTip->delete();
 
-        return redirect(route('completed-challenge.show', $challenge));
+        return redirect(route('completed-challenge.show', $adminTip->challenge));
 
     }
 

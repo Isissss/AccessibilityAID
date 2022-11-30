@@ -34,7 +34,7 @@
                         @enderror
                     </div>
                     <div>
-                        <input name="challenge_id" class="form-control" placeholder="challenge id">
+                        <input type = "hidden" name ="challenge_id" class="form-control" placeholder="challenge id" value="{{$request->id}}">
                         @error('challenge_id')
                         <div class="alert alert-danger mt-1 mb-1">{{$message}}</div>
                         @enderror

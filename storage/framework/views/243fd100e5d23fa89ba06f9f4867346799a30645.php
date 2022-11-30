@@ -40,7 +40,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div>
-                        <input name="challenge_id" class="form-control" placeholder="challenge id">
+                        <input type = "hidden" name ="challenge_id" class="form-control" placeholder="challenge id" value="<?php echo e($request->id); ?>">
                         <?php $__errorArgs = ['challenge_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -52,6 +52,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
+                </div>
                 <button type="submit" class="btn btn-primary ml-3">Submit</button>
             </div>
         </form>
