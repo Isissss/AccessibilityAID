@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Challenge;
 use App\Models\CompletedChallenge;
+use App\Models\PersonalFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class ChallengeController extends Controller
 {
@@ -49,14 +51,16 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        $completedChallenge = auth()->user()->completed_challenges()->firstOrCreate([
+        $personalFeedback = new PersonalFeedback;
+        $personalFeedback->save();
+        $completedChallenge = new CompletedChallenge([
+            'user_id' => auth()->user()->id,
             'challenge_id' => $challenge->id,
-            'session' => auth()->user()->session
+            'personal_feedback_id' => $personalFeedback?->id,
+            'started_at' => Carbon::now()
         ]);
-
-        $completedChallenge->started_at = Carbon::now();
         $completedChallenge->save();
-
+        Session::put('completed_challenge_id', $completedChallenge->id);
         return view('challenge.show', compact('challenge'));
     }
 

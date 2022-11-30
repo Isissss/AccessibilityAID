@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Faker\Provider\Person;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,5 +31,9 @@ class CompletedChallenge extends Model
         return $this->belongsTo(Challenge::class);
     }
 
+    public function personalFeedback()
+    {
+        return $this->hasOne(PersonalFeedback::class);
+    }
 
 }
