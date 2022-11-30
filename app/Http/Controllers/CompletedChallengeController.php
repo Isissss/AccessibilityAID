@@ -58,9 +58,10 @@ class CompletedChallengeController extends Controller
         $completedChallenge = CompletedChallenge::findOrFail(Session::get('completed_challenge_id'));
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
+        }
 
-        $average1 = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
-        $average = CarbonInterval::seconds($average1)->cascade()->forHumans();
+        $average = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
+        $average = CarbonInterval::seconds($average)->cascade()->forHumans();
 
         $feedback = PersonalFeedback::find(Session::get('completed_challenge_id'));
 

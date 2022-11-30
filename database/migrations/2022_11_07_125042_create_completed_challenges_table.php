@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('challenge_id')->constrained()->cascadeOnDelete();
             $table->foreignId('personal_feedback_id')->constrained()->cascadeOnDelete();
+            $table->integer('session')->default(1);
             $table->smallInteger('score')->nullable();
             $table->text('notes')->nullable();
             $table->timestamp('started_at')->nullable();
