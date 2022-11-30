@@ -56,6 +56,29 @@
                 <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging.</button>
             </form>
         </div>
+        <div class="row">
+            <div class="col overflow-auto">
+                <div id="tips">
+                    <h2>Wat heeft u over dit onderdeel geleerd?</h2>
+                    <hr class="mt-2 mb-3"/>
+                    <form action="">
+                        @CSRF
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+                <h2>Feedback voor ons</h2>
+                <hr class="mt-2 mb-3"/>
+
+            </div>
+
+        </div>
         << Hier komt feedback >>
     </div>
 @endsection
