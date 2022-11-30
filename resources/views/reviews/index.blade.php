@@ -4,7 +4,7 @@
     <form action="{{route('reviews.search')}}" method="post">
         @csrf
         <label for="search">Search:</label>
-        <input id="search" type="text" name="search">
+        <input id="search" type="search" name="search">
         <input name="submit" type="submit" class="btn btn-primary"/>
     </form>
     <div class="row justify-content-center g-2">
@@ -18,8 +18,8 @@
                         <p class="card-text">Review:</p>
                         <p class="card-text">{{$review->content}}</p>
 
-                        <form action="{{ route('reviews.destroy',$review->id) }}" method="Post">
-                            <a class="btn btn-primary" href="{{ route('reviews.show',$review->id) }}">show</a>
+                        <form action="{{route('reviews.destroy',$review)}}" method="Post">
+                            <a class="btn btn-primary" href="{{route('reviews.show',$review)}}">show</a>
                         @csrf
                         @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>

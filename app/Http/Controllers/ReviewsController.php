@@ -14,8 +14,7 @@ class ReviewsController extends Controller
         return view('reviews.index', compact('reviews'));
     }
 
-    public function show($id){
-        $review = Review::find($id);
+    public function show(Review $review){
         return view('reviews.show', compact('review'));
     }
 
