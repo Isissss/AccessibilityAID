@@ -26,7 +26,8 @@
                 <hr class="mt-2 mb-3"/>
                 <div class="row">
                     Voorbeeld van een toegankelijke website waar het contrast goed is:
-                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example.png')}}" alt="Voorbeeld van toegankelijke website">
+                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example.png')}}"
+                         alt="Voorbeeld van toegankelijke website">
                 </div>
                 <div class="row border border-danger">
                     << Hier komen voorbeeld 2 >>
@@ -61,14 +62,46 @@
                 <div id="tips">
                     <h2>Wat heeft u over dit onderdeel geleerd?</h2>
                     <hr class="mt-2 mb-3"/>
-                    <form action="">
+                    <form action="{{route('completed-challenge.update', $completedChallenge)}}" method="post">
+                        @method('PUT')
                         @CSRF
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_1" name="feedback_1">
+                            <label class="form-check-label" for="feedback_1">
+                                Feedback 1
                             </label>
                         </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_2" name="feedback_2">
+                            <label class="form-check-label" for="feedback_2">
+                                Feedback 2
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_3" name="feedback_3">
+                            <label class="form-check-label" for="feedback_3">
+                                Feedback 3
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_4" name="feedback_4">
+                            <label class="form-check-label" for="feedback_4">
+                                Feedback 4
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_5" name="feedback_5">
+                            <label class="form-check-label" for="feedback_5">
+                                Feedback 5
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="feedback_6" name="feedback_6">
+                            <label class="form-check-label" for="feedback_6">
+                                Feedback 6
+                            </label>
+                        </div>
+                        <input type="submit" value="stuur">
                     </form>
                 </div>
             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Challenge;
 use App\Models\CompletedChallenge;
+use App\Models\PersonalFeedback;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
@@ -64,7 +65,9 @@ class CompletedChallengeController extends Controller
         $average1 = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
         $average = CarbonInterval::seconds($average1)->cascade()->forHumans();
 
-        return view('finished.show', compact('challenge', 'average', 'completedChallenge'));
+        $feedback = PersonalFeedback::find(Session::get('completed_challenge_id'));
+
+        return view('finished.show', compact('challenge', 'average', 'completedChallenge', 'feedback'));
     }
 
     /**
@@ -78,11 +81,19 @@ class CompletedChallengeController extends Controller
     {
         // TO-DO: Rename function and eventually store notes too.
 
-        $attributes = $request->validate([
-            'rating' => 'nullable|integer|min:1|max:5'
-        ]);
-
-        $completedChallenge->score = $attributes['rating'];
+//        $attributes = $request->validate([
+//            'rating' => 'nullable|integer|min:1|max:5'
+//        ]);
+//
+//        $completedChallenge->score = $attributes['rating'];
+        $feedback = PersonalFeedback::find($completedChallenge->personal_feedback_id);
+        $feedback->feedback_1 = $request->has('feedback_1');
+        $feedback->feedback_2 = $request->has('feedback_2');
+        $feedback->feedback_3 = $request->has('feedback_3');
+        $feedback->feedback_4 = $request->has('feedback_4');
+        $feedback->feedback_5 = $request->has('feedback_5');
+        $feedback->feedback_6 = $request->has('feedback_6');
+        $feedback->update();
 
         $completedChallenge->update();
 

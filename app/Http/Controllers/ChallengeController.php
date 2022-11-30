@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Challenge;
 use App\Models\CompletedChallenge;
+use App\Models\PersonalFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
@@ -56,9 +57,12 @@ class ChallengeController extends Controller
 //
 //        $completedChallenge->started_at = Carbon::now();
 //        $completedChallenge->save();
+        $personalFeedback = new PersonalFeedback;
+        $personalFeedback->save();
         $completedChallenge = new CompletedChallenge([
             'user_id' => auth()->user()->id,
             'challenge_id' => $challenge->id,
+            'personal_feedback_id' => $personalFeedback->id,
             'started_at' => Carbon::now()
         ]);
         $completedChallenge->save();

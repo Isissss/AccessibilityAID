@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personal_feedback', function (Blueprint $table) {
+        Schema::create('personal_feedbacks', function (Blueprint $table) {
             $table->id();
             $table->boolean('feedback_1')->default(0);
             $table->boolean('feedback_2')->default(0);
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_feedback');
+        Schema::dropIfExists('personal_feedbacks');
     }
 };
