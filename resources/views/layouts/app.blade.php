@@ -57,7 +57,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{route('completed-challenge.index', auth()->user()->id)}}" class="dropdown-item">Resultaten overzicht</a>
+                                    <a href="{{route('profile.index', auth()->user()->id)}}" class="dropdown-item">Resultaten overzicht</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -11,9 +12,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+        $results = CompletedChallenge::where('user_id', '=', $id)->get();
+        return view('profile.index', compact('results'));
     }
 
     /**

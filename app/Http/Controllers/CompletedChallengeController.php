@@ -19,11 +19,9 @@ class CompletedChallengeController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index($id)
+    public function index()
     {
         //
-        $results = CompletedChallenge::where('user_id', '=', $id)->get();
-        return view('profile.index', compact('results'));
     }
 
     /**
