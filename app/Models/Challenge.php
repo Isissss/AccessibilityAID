@@ -20,5 +20,10 @@ class Challenge extends Model
         return $this->hasMany(Tip::class);
     }
 
+    public function completed_challenges()
+    {
+        return $this->hasMany(CompletedChallenge::class);
+    }
+
 
 }

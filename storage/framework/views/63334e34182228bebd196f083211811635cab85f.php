@@ -32,6 +32,11 @@
                                 <?php endif; ?>
                             </li>
 
+                    <h2>Tips</h2>
+                    <hr class="mt-2 mb-3"/>
+                    <ul>
+                        <?php $__currentLoopData = $challenge->tips; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tip): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li> <?php echo Str::markdown($tip->content); ?> </li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>

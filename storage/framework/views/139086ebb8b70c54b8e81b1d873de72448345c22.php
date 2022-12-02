@@ -59,6 +59,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <?php if(Auth::user()->admin): ?>
+                                        <a class="dropdown-item" href="<?php echo e(route('reviews.index')); ?>">Reviews</a>
+                                    <?php endif; ?>
                                     <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
