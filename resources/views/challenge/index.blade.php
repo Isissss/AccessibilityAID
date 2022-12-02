@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @vite('resources/js/challenge.js')
 @section('content')
+
     <div class="col-md-8 m-auto mt-4">
+        @if (Session::has('message'))
+            <div class="alert alert-primary" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 Opdrachten
