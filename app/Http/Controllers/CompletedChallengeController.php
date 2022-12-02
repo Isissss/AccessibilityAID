@@ -19,11 +19,9 @@ class CompletedChallengeController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index($id)
+    public function index()
     {
         //
-        $results = CompletedChallenge::where('user_id', '=', $id)->get();
-        return view('profile.index', compact('results'));
     }
 
     /**
@@ -58,7 +56,6 @@ class CompletedChallengeController extends Controller
         $completedChallenge = CompletedChallenge::findOrFail(Session::get('completed_challenge_id'));
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
-        }
 
         $average = $completedChallenge->completed_at->timestamp - $completedChallenge->started_at->timestamp;
         $average = CarbonInterval::seconds($average)->cascade()->forHumans();
