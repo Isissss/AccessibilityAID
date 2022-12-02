@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\CompletedChallengeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RapportController;
 use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,13 @@ Route::get('/{user:id}/results', [ProfileController::class, 'index'])->name('pro
 Route::get('/{user:id}/results/rapport', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
+
+
+Route::middleware(['auth','role_admin'])->group(function (){
+    Route::resource('reviews', ReviewsController::class);
+    Route::post('reviews/search', [ReviewsController::class, 'search'])->name('reviews.search');
+
+});
 
 Auth::routes();
 
