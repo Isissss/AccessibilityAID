@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminTips;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\CompletedChallengeController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,11 @@ Route::get('/{user:id}/results/rapport', [ProfileController::class, 'show'])->na
 Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
+Route::middleware(['auth','role_admin'])->group(function (){
+    Route::resource('adminTips', AdminTips::class);
+});
+
+Auth::routes();
 
 Route::middleware(['auth','role_admin'])->group(function (){
     Route::resource('reviews', ReviewsController::class);
