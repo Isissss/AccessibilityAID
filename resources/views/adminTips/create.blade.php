@@ -1,14 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <title>Add Build</title>
-    </head>
-
-    <body>
     <div class="container mt-2">
         <div class="row">
             <div class="col-lg-12 margin-tb">
@@ -44,6 +33,6 @@
             </div>
         </form>
     </div>
-    </body>
+    
 
 @endsection
