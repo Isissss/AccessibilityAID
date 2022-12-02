@@ -17,7 +17,6 @@ class AdminTips extends Controller
 
     public function edit(Tip $adminTip, Challenge $challenge){
 
-        dd($adminTip);
 
         return view('adminTips.edit', compact('adminTip', 'challenge'));
     }

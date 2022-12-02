@@ -1,3 +1,4 @@
+
 <?php echo app('Illuminate\Foundation\Vite')(['resources/js/votehandler.js']); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -14,7 +15,7 @@
                 <div id="tips">
                     <h2>Tips
                         <?php if(Auth::user()->admin): ?>
-                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.create')); ?>">Create</a>
+                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.create', ['id' => $challenge->id])); ?>">Create</a>
                         <?php endif; ?>
                     </h2>
                     <hr class="mt-2 mb-3"/>
@@ -24,7 +25,7 @@
 
                                 <?php if(Auth::user()->admin): ?>
                                     <form action="<?php echo e(route('adminTips.destroy', $tip)); ?>" method="Post">
-                                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.edit',$tip)); ?>">Edit</a>
+                                        <a class="btn btn-primary" href="<?php echo e(route('adminTips.edit', $tip)); ?>">Edit</a>
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('DELETE'); ?>
                                         <button type="submit" class="btn btn-danger">Delete</button>
