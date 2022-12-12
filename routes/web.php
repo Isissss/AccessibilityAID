@@ -29,7 +29,7 @@ Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->m
 
 Route::resource('/challenge', ChallengeController::class);
 
-Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
+Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');
 Route::get('/challenge/{challenge:slug}/finished', [CompletedChallengeController::class, 'show'])->name('completed-challenge.show');
 Route::put('/finished/{completed_challenge}', [CompletedChallengeController::class, 'update'])->name('completed-challenge.update');
 Route::get('/{user:id}/results', [ProfileController::class, 'index'])->name('profile.index');
@@ -37,20 +37,17 @@ Route::get('/{user:id}/results/rapport', [ProfileController::class, 'show'])->na
 Route::get('home/start', [TimeController::class, 'start'])->name('time.start');
 Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
-Route::middleware(['auth','role_admin'])->group(function (){
-    Route::resource('adminTips', AdminTips::class);
-});
+
 
 Auth::routes();
 
 Route::middleware(['auth','role_admin'])->group(function (){
     Route::resource('reviews', ReviewsController::class);
+    Route::resource('adminTips', AdminTips::class);
     Route::post('reviews/search', [ReviewsController::class, 'search'])->name('reviews.search');
 
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 

@@ -8,6 +8,8 @@ use App\Models\PersonalFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
+
 
 class ChallengeController extends Controller
 {
@@ -54,14 +56,19 @@ class ChallengeController extends Controller
         $personalFeedback = new PersonalFeedback;
         $personalFeedback->save();
         $completedChallenge = new CompletedChallenge([
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->id(),
             'challenge_id' => $challenge->id,
             'personal_feedback_id' => $personalFeedback?->id,
             'started_at' => Carbon::now()
         ]);
         $completedChallenge->save();
         Session::put('completed_challenge_id', $completedChallenge->id);
-        return view('challenge.show', compact('challenge'));
+
+        if (!view::exists("challenge.challenges.{$challenge->name}")) {
+            abort(404);
+        }
+
+        return view("challenge.challenges.{$challenge->name}", compact('challenge'));
     }
 
     /**
