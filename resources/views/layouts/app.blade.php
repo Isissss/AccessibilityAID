@@ -58,9 +58,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a href="{{route('profile.index', auth()->user()->id)}}" class="dropdown-item">Resultaten overzicht</a>
-                                    @if(Auth::user()->admin)
+                                    @admin
+                                    <a class="dropdown-item" href="{{route('admin.challenge.index')}}">Admin portaal</a>
                                         <a class="dropdown-item" href="{{route('reviews.index')}}">Reviews</a>
-                                    @endif
+                                    @endadmin
 
                                     <a href="{{route('profile.index', auth()->user()->id)}}" class="dropdown-item"></a>
 
