@@ -18,12 +18,12 @@
                         @endif
                     </h2>
                     <hr class="mt-2 mb-3"/>
-                    <ul class="nav nav-pills nav-fill">
+                    <ul class="nav nav-pills nav-fill pb-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Active</a>
+                            <a class="nav-link active" aria-current="page" href="#">Geen Wordpress</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Much longer nav link</a>
+                            <a class="nav-link" href="#">Wordpress</a>
                         </li>
                     </ul>
                     <ul>
