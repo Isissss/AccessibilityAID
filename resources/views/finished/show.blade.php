@@ -18,6 +18,14 @@
                         @endif
                     </h2>
                     <hr class="mt-2 mb-3"/>
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Active</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Much longer nav link</a>
+                        </li>
+                    </ul>
                     <ul>
                         @foreach($challenge->tips as $tip)
                             <li> {!! Str::markdown($tip->content) !!}
