@@ -62,8 +62,6 @@
                                         <a class="dropdown-item" href="{{route('reviews.index')}}">Reviews</a>
                                     @endif
 
-                                    <a href="{{route('completed-challenge.index', auth()->user()->id)}}" class="dropdown-item"></a>
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
