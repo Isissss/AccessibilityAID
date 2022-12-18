@@ -1,4 +1,4 @@
-    @extends('layouts.app')
+@extends('layouts.app')
 @vite('resources/js/challenge.js')
 @section('content')
 
