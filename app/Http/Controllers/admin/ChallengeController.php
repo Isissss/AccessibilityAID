@@ -4,9 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Challenge;
+use App\Models\CompletedChallenge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+
 
 class ChallengeController extends Controller
 {
@@ -38,17 +40,15 @@ class ChallengeController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
-            'name' => ['required', 'max:50', Rule::unique('challenges', 'name')],
+            'name' => ['required', 'max:50', 'unique:challenges'],
             'slug' => ['string'],
             'description' => ['string', 'min:10'],
             'goal' => ['string', 'min:10'],
             'active' => ['boolean']
         ]);
 
-        $validated['slug'] = Str::slug($validated['name'], '-');
-
+        $validated['slug'] = Str::slug($validated['slug'], '-');
 
         Challenge::create($validated);
 
@@ -63,7 +63,8 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        //
+        $completed_count = CompletedChallenge::where('challenge_id', $challenge->id)->count();
+        return view('admin.challenges.show', compact('challenge', 'completed_count'));
     }
 
     /**
@@ -74,7 +75,7 @@ class ChallengeController extends Controller
      */
     public function edit(Challenge $challenge)
     {
-        //
+        return view('admin.challenges.edit', compact('challenge'));
     }
 
     /**
@@ -86,7 +87,18 @@ class ChallengeController extends Controller
      */
     public function update(Request $request, Challenge $challenge)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'min:3', Rule::unique('challenges', 'name')->ignore($challenge)],
+            'slug' => ['required', 'string', Rule::unique('challenges', 'slug')->ignore($challenge) ],
+            'description' => ['required', 'string', 'min:10'],
+            'goal' => ['required', 'string', 'min:10'],
+            'active' => ['boolean']
+        ]);
+
+        $challenge->update($validated);
+        $challenge->save();
+
+        return redirect(route('admin.challenge.index'));
     }
 
     /**
@@ -100,5 +112,14 @@ class ChallengeController extends Controller
         $challenge->delete();
 
         return redirect(route('admin.challenge.index'))->with('message', 'Challenge has been deleted');
+    }
+
+    public function updateVisibility(Request $request, Challenge $challenge)
+    {
+        $validated = $request->validate([
+            'active' => 'required|boolean',
+        ]);
+
+        $challenge->update($validated);
     }
 }

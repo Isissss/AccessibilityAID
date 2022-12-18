@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Challenge;
 use App\Models\CompletedChallenge;
 use App\Models\PersonalFeedback;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;

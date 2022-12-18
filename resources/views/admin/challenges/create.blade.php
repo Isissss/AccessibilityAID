@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@vite(['resources/js/challengeForm.js'])
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -7,7 +7,9 @@
                 <div class="card">
                     <div class="card-header">New Challenge</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.challenge.store') }}" enctype="multipart/form-data">
+                        <form method="POST" id="challengeForm"
+                              action="{{ route('admin.challenge.store') }}"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Title</label>
@@ -21,17 +23,24 @@
                                     @error('title')
                                     <div class="alert  alert-danger">{{ $message }}</div>
                                     @enderror
+
+                                    <input type="checkbox" class="form-check-input" name="test" id="slugCheckbox">
+                                    <label class="text-md-end" for="slugCheckbox">Laat slug hetzelfde zijn als de
+                                        opdracht naam</label>
                                 </div>
                             </div>
+
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Slug</label>
+                                <label for="slug" class="col-md-4 col-form-label text-md-end">Slug</label>
                                 <div class="col-md-6">
                                     <input id="slug"
                                            type="text"
                                            class="form-control @error('slug') is-invalid @enderror"
                                            name="slug"
                                            value="{{ old('slug') }}" required>
-
+                                    <small id="challengeHelp" class="form-text text-muted">Dit is de opdracht naam in de
+                                        URL, gescheiden door '-'. Tevens ook de naam
+                                        van de HTML file in de challenges/challenge map.</small>
                                     @error('slug')
                                     <div class="alert  alert-danger">{{ $message }}</div>
                                     @enderror
@@ -54,11 +63,11 @@
                             <div class="row mb-3 form-group">
                                 <label for="description" class="col-md-4 col-form-label text-md-end">Opdrachtbeschrijving</label>
                                 <div class="col-md-6">
-                                    <textarea  required class="form-control"
-                                               name="description"
-                                               id="description"
-                                               placeholder="Beschrijf de opdracht voor in het hoofdscherm"
-                                               rows="3">{{ old('description') }}</textarea>
+                                    <textarea required class="form-control"
+                                              name="description"
+                                              id="description"
+                                              placeholder="Beschrijf de opdracht voor in het hoofdscherm"
+                                              rows="3">{{ old('description') }}</textarea>
                                     @error('description')
                                     <div class="alert  alert-danger">{{  $message }}</div>
                                     @enderror
@@ -76,39 +85,6 @@
                                     @enderror
                                 </div>
                             </div>
-{{--                            <div class="row mb-3">--}}
-{{--                                <label for="category_id"--}}
-{{--                                       class="col-md-4 col-form-label text-md-end">Server/Location</label>--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <select required--}}
-{{--                                            name="category_id"--}}
-{{--                                            class="form-control @error('category_id') is-invalid @enderror"--}}
-{{--                                            id="category_id">--}}
-{{--                                        <option value="" selected hidden>Select a server</option>--}}
-{{--                                        @foreach($categories as $category)--}}
-{{--                                            <option value="{{$category->id}}" @if (old('category_id') == $category->id) selected @endif>{{$category->name}}</option>--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-{{--                                    @error('category_id')--}}
-{{--                                    <div class="alert  alert-danger">{{ $message }}</div>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="row mb-3 form-group">--}}
-{{--                                <label for="description" class="col-md-4 col-form-label text-md-end">Why are you--}}
-{{--                                    suggesting this?</label>--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <textarea  required class="form-control"--}}
-{{--                                               name="description"--}}
-{{--                                               id="description"--}}
-{{--                                               rows="3">{{ old('description') }}</textarea>--}}
-{{--                                    @error('description')--}}
-{{--                                    <div class="alert  alert-danger">{{  $message }}</div>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-
-
                             <button type="submit" class="btn btn-primary ">Submit</button>
                         </form>
                     </div>

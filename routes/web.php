@@ -39,11 +39,14 @@ Route::get('home/end', [TimeController::class, 'end'])->name('time.end');
 
 
 auth::routes();
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('challenge', \App\Http\Controllers\admin\ChallengeController::class);
-});
+
 
 Route::middleware(['auth','role_admin'])->group(function (){
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('challenge', \App\Http\Controllers\admin\ChallengeController::class);
+    });
+    Route::patch('challenge/{challenge:id}/update-visibility', [\App\Http\Controllers\admin\ChallengeController::class, 'updateVisibility'])->name('admin.challenge.update-visibility');
+
     Route::resource('reviews', ReviewsController::class);
     Route::resource('adminTips', AdminTips::class);
 
