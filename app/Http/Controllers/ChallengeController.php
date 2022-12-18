@@ -61,7 +61,17 @@ class ChallengeController extends Controller
         ]);
         $completedChallenge->save();
         Session::put('completed_challenge_id', $completedChallenge->id);
-        return view('challenge.show', compact('challenge'));
+
+        if( $challenge->id === 1){
+            return view('challenge.show', compact('challenge'));
+        }
+        if($challenge->id === 2){
+            return view('challenge.besturing', compact('challenge'));
+        }
+        if($challenge->id === 3){
+            return view('challenge.show', compact('challenge'));
+        }
+
     }
 
     /**
