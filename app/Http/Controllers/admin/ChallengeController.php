@@ -41,10 +41,10 @@ class ChallengeController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'max:50', 'unique:challenges'],
-            'slug' => ['string'],
-            'description' => ['string', 'min:10'],
-            'goal' => ['string', 'min:10'],
+            'name' => ['required', Rule::unique('challenges', 'name')],
+            'slug' => ['required', 'string', Rule::unique('challenges', 'slug') ],
+            'description' => ['required', 'string', 'min:10'],
+            'goal' => ['required', 'string', 'min:10'],
             'active' => ['boolean']
         ]);
 
@@ -88,7 +88,7 @@ class ChallengeController extends Controller
     public function update(Request $request, Challenge $challenge)
     {
         $validated = $request->validate([
-            'name' => ['required', 'min:3', Rule::unique('challenges', 'name')->ignore($challenge)],
+            'name' => ['required', Rule::unique('challenges', 'name')->ignore($challenge)],
             'slug' => ['required', 'string', Rule::unique('challenges', 'slug')->ignore($challenge) ],
             'description' => ['required', 'string', 'min:10'],
             'goal' => ['required', 'string', 'min:10'],
