@@ -25,9 +25,9 @@ function challengeClickHandler(e) {
     }
     let noWordpressButton = document.getElementById('noWordpressButton');
     let wordpressButton = document.getElementById('wordpressButton');
-    console.log(e.target.getAttribute('aria-current'))
+
     if (!e.target.getAttribute('aria-current')) {
-        console.log(e.target.id)
+
         // if (e.target.id === "noWordpressButton")
         noWordpressButton.classList.remove('active');
         noWordpressButton.removeAttribute("aria-current");
