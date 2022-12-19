@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@vite('resources/js/tips.js')
 @vite(['resources/js/votehandler.js'])
 
 @section('content')
@@ -18,15 +19,15 @@
                         @endif
                     </h2>
                     <hr class="mt-2 mb-3"/>
-                    <ul class="nav nav-pills nav-fill pb-2">
+                    <ul id="wordpressNav" class="nav nav-pills nav-fill pb-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Geen Wordpress</a>
+                            <button id="noWordpressButton" class="nav-link active" aria-current="page" data-id="0">Geen Wordpress</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Wordpress</a>
+                            <button id="wordpressButton" class="nav-link" data-id="1">Wordpress</button>
                         </li>
                     </ul>
-                    <ul>
+                    <ul id="tipContainer">
                         @foreach($challenge->tips as $tip)
                             <li> {!! Str::markdown($tip->content) !!}
                                 @if(Auth::user()->admin)
@@ -136,6 +137,9 @@
         </div>
         << Hier komt feedback >>
     </div>
+    <script>
+        apiurl = "http://127.0.0.1:8000/api/challenge/contrast/finished/"
+    </script>
 @endsection
 
 

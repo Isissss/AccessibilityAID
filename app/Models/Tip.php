@@ -9,7 +9,7 @@ class Tip extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content', 'challenge_id'];
+    protected $fillable = ['content', 'challenge_id', 'wordpress'];
 
     public function challenge()
     {
