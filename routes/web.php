@@ -6,6 +6,7 @@ use App\Http\Controllers\CompletedChallengeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\RapportController;
+use App\Http\Controllers\StatController;
 use App\Http\Controllers\TimeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +27,8 @@ Route::get('/', function () {
 });
 Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
 Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
-
 Route::resource('/challenge', ChallengeController::class);
-
+Route::get('/stats',[StatController::class, 'show'])->name('stats');
 Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');;
 Route::get('/challenge/{challenge:slug}/finished', [CompletedChallengeController::class, 'show'])->name('completed-challenge.show');
 Route::put('/finished/{completed_challenge}', [CompletedChallengeController::class, 'update'])->name('completed-challenge.update');
