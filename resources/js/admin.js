@@ -19,7 +19,7 @@ document.querySelector('#challengeToggle').addEventListener('click', function (e
                 position: 'top',
                 toast: 'true',
                 timer: '2000',
-                text: `Category is now ${(clicked.checked) ? "visible" : "hidden"}!`,
+                text: `Challenge is now ${(clicked.checked) ? "visible" : "hidden"}!`,
             })
         }).catch(function (error) {
         Swal.fire({
