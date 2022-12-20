@@ -45,10 +45,10 @@ class ChallengeController extends Controller
      * @param  \App\Models\Challenge  $challenge
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Challenge $challenge)
+    public function show(Challenge $challenge, Request $request)
     {
-        //
-        return response()->json($challenge);
+        $tips = $challenge->tips()->where('wordpress', true)->get();
+        return response()->json($tips);
     }
 
     /**
