@@ -19,7 +19,6 @@ class ChallengeController extends Controller
      */
     public function index()
     {
-        //
         $challenges = Challenge::where('active', true)->get();
         return view('challenge.index', compact('challenges'));
     }
@@ -32,6 +31,10 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
+        if (!$challenge->active && !auth()->user()?->admin) {
+            abort(404);
+        }
+
         $personalFeedback = new PersonalFeedback;
         $personalFeedback->save();
         $completedChallenge = new CompletedChallenge([
