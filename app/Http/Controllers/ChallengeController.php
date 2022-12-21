@@ -20,7 +20,7 @@ class ChallengeController extends Controller
     public function index()
     {
         //
-        $challenges = Challenge::all();
+        $challenges = Challenge::where('active', true)->get();
         return view('challenge.index', compact('challenges'));
     }
 
