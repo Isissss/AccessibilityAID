@@ -15,37 +15,6 @@ use Illuminate\Support\Facades\Session;
 class CompletedChallengeController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param Challenge $challenge
@@ -74,13 +43,12 @@ class CompletedChallengeController extends Controller
      */
     public function update(Request $request, CompletedChallenge $completedChallenge)
     {
-        // TO-DO: Rename function and eventually store notes too.
+        $attributes = $request->validate([
+            'rating' => 'nullable|integer|min:1|max:5'
+        ]);
 
-//        $attributes = $request->validate([
-//            'rating' => 'nullable|integer|min:1|max:5'
-//        ]);
-//
-//        $completedChallenge->score = $attributes['rating'];
+        $completedChallenge->score = $attributes['rating'];
+
         $feedback = PersonalFeedback::findOrFail($completedChallenge->personal_feedback_id);
         $feedback->feedback_1 = $request->has('feedback_1');
         $feedback->feedback_2 = $request->has('feedback_2');
