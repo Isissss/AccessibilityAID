@@ -63,13 +63,13 @@ class ChallengeController extends Controller
         Session::put('completed_challenge_id', $completedChallenge->id);
 
         if( $challenge->id === 1){
-            return view('challenge.show', compact('challenge'));
+            return view('challenge.challenges.contrast', compact('challenge'));
         }
         if($challenge->id === 2){
-            return view('challenge.besturing', compact('challenge'));
+            return view('challenge.challenges.besturing', compact('challenge'));
         }
         if($challenge->id === 3){
-            return view('challenge.show', compact('challenge'));
+            return view('challenge.challenges.contrast', compact('challenge'));
         }
 
     }
