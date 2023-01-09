@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @vite(['resources/js/votehandler.js'])
-
 @section('content')
 
     <div class="container p-4 bg-white rounded card">
@@ -12,27 +11,62 @@
         <div class="row">
             <div class="col overflow-auto">
                 <div id="tips">
-                    <h2>Tips
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <h2 class="px-3">Tips</h2>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#noWordpress"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">Geen Wordpress
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#wordpress"
+                                    type="button" role="tab" aria-controls="profile" aria-selected="false">Wordpress
+                            </button>
+                        </li>
                         @if(Auth::user()->admin)
-                        <a class="btn btn-primary" href="{{route('adminTips.create', ['id' => $challenge->id])}}">Create</a>
+                            <a class="btn btn-primary" href="{{route('adminTips.create', ['id' => $challenge->id])}}">Create</a>
                         @endif
-                    </h2>
-                    <hr class="mt-2 mb-3"/>
-                    <ul>
-                        @foreach($challenge->tips as $tip)
-                            <li> {!! Str::markdown($tip->content) !!}
-                                @if(Auth::user()->admin)
-                                    <form action="{{route('adminTips.destroy', $tip)}}" method="Post">
-                                        <a class="btn btn-primary" href="{{route('adminTips.edit', $tip)}}">Edit</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                @endif
-                            </li>
-
-                        @endforeach
                     </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="noWordpress" role="tabpanel" aria-labelledby="noWordpress-tab" tabindex="0">
+                            <ul id="tipContainer">
+                                @foreach($challenge->tips as $tip)
+                                    @if(!$tip->wordpress)
+                                        <li> {!! Str::markdown($tip->content) !!}
+                                            @if(Auth::user()->admin)
+                                                <form action="{{route('adminTips.destroy', $tip)}}" method="Post">
+                                                    <a class="btn btn-primary" href="{{route('adminTips.edit', $tip)}}">Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            @endif
+                                        </li>
+                                    @endif
+
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="wordpress" role="tabpanel" aria-labelledby="wordpress-tab" tabindex="0">
+                            <ul id="tipContainer">
+                                @foreach($challenge->tips as $tip)
+                                    @if($tip->wordpress)
+                                        <li> {!! Str::markdown($tip->content) !!}
+                                            @if(Auth::user()->admin)
+                                                <form action="{{route('adminTips.destroy', $tip)}}" method="Post">
+                                                    <a class="btn btn-primary" href="{{route('adminTips.edit', $tip)}}">Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            @endif
+                                        </li>
+                                    @endif
+
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col">
@@ -128,6 +162,9 @@
         </div>
         << Hier komt feedback >>
     </div>
+    <script>
+        apiurl = "http://127.0.0.1:8000/api/challenge/contrast/finished/"
+    </script>
 @endsection
 
 
