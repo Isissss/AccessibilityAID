@@ -54,6 +54,11 @@ class CompletedChallengeController extends Controller
     public function show(Challenge $challenge)
     {
         $completedChallenge = CompletedChallenge::findOrFail(Session::get('completed_challenge_id'));
+
+        if(auth()->id() != $completedChallenge->user->id) {
+            abort(403);
+        }
+
         $completedChallenge->completed_at = Carbon::now();
         $completedChallenge->save();
 
