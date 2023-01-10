@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@vite(['resources/js/votehandler.js'])
+@vite(['resources/js/finishedChallenge.js'])
+
 @section('content')
 
     <div class="container p-4 bg-white rounded card">
@@ -98,19 +99,13 @@
             @enderror
             Uw score: <span id="count">{{$completedChallenge?->score}}</span>/5
 
-            <a href="{{route('challenge.show', $challenge)}}">Terug</a>
-            <form method="POST" action="{{route('completed-challenge.update', $completedChallenge)}}">
-                @csrf
-                <input type="hidden" name="rating" id="rating" value="">
-                <button class="btn btn-primary">Sla op en ga naar de volgende uitdaging.</button>
-            </form>
         </div>
         <div class="row">
             <div class="col overflow-auto">
                 <div id="tips">
                     <h2>Wat heeft u over dit onderdeel geleerd?</h2>
                     <hr class="mt-2 mb-3"/>
-                    <form action="{{route('completed-challenge.update', $completedChallenge)}}" method="post">
+                    <form action="{{route('completed-challenge.update', $completedChallenge)}}" id="finishForm" method="post">
                         @method('PUT')
                         @CSRF
                         <div class="form-check">
@@ -149,7 +144,7 @@
                                 Feedback 6
                             </label>
                         </div>
-                        <input type="submit" value="stuur">
+                        <input type="hidden" name="rating" id="rating" value="">
                     </form>
                 </div>
             </div>
@@ -160,10 +155,10 @@
             </div>
 
         </div>
-        << Hier komt feedback >>
+        <button class="btn btn-primary" id="submitForm">Sla op en ga naar de volgende uitdaging.</button>
     </div>
     <script>
-        apiurl = "http://127.0.0.1:8000/api/challenge/contrast/finished/"
+        apiurl = "/api/challenge/contrast/finished/"
     </script>
 @endsection
 
