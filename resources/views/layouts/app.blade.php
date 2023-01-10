@@ -63,9 +63,7 @@
                                     <a class="dropdown-item" href="{{route('admin.challenge.index')}}">Admin portaal</a>
                                         <a class="dropdown-item" href="{{route('reviews.index')}}">Reviews</a>
                                     @endadmin
-
-                                    <a href="{{route('profile.index', auth()->user()->id)}}" class="dropdown-item"></a>
-
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

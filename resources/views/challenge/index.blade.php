@@ -8,6 +8,9 @@
                 {{ session('message') }}
             </div>
         @endif
+        <div class="d-flex justify-content-end">
+            <a href="{{route('send-rapport')}}" class="btn btn-success mb-2 @if(!(auth()->user()->completed_challenges->count() >= 1)) disabled @endif">@if(!(auth()->user()->completed_challenges->count() >= 1)) Je hebt nog geen opdrachten voltooid @else Stuur rapport op @endif</a>
+        </div>
         <div class="card">
             <div class="card-header">
                 Opdrachten
