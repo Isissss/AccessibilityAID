@@ -35,7 +35,7 @@ class ProcessRapportEmail implements ShouldQueue
     public function handle()
     {
         // Collect all challenges for rapport.
-        $challenges = CompletedChallenge::where('user_id', '=', $this->user->id)->where('session', '=', $this->session)->get();
+        $challenges = CompletedChallenge::where('user_id', '=', $this->user->id)->get();
 
         Mail::to($this->user->email)->send(new RapportMail($challenges));
     }
