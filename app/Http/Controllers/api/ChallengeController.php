@@ -47,7 +47,6 @@ class ChallengeController extends Controller
      */
     public function show(Challenge $challenge)
     {
-        //
         return response()->json($challenge);
     }
 

@@ -33,12 +33,8 @@ class RapportController extends Controller
 
     public function downloadRapport(Request $request)
     {
-        // Get session through form
-        $session = $request->validate([
-            'session' => 'required|integer'
-        ]);
 
-        $challenges = CompletedChallenge::where('user_id', '=', auth()->id())->where('session', '=', $session)->get();
+        $challenges = CompletedChallenge::where('user_id', '=', auth()->id())->get();
 
         //Create pdf and automatically download
         $pdf = new Dompdf();

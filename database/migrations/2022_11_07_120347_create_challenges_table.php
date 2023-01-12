@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->string('goal', 250);
-            $table->boolean('active')->default(false);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

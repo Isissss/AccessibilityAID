@@ -27,3 +27,9 @@ votingDiv.addEventListener('click', function (e) {
     document.getElementById('rating').value = e.target.dataset.vote
 });
 
+document.getElementById('submitForm').addEventListener('click', function (e) {
+    e.preventDefault()
+    document.getElementById('finishForm').submit()
+
+
+})

@@ -12,13 +12,13 @@ class AdminTips extends Controller
     public function create(Tip $admin, Request $request){
 
 
-        return view('adminTips.create', compact('admin' , 'request'));
+        return view('admin.tips.create', compact('admin' , 'request'));
     }
 
     public function edit(Tip $adminTip, Challenge $challenge){
 
 
-        return view('adminTips.edit', compact('adminTip', 'challenge'));
+        return view('admin.tips.edit', compact('adminTip', 'challenge'));
     }
 
     public function store(Request $request)

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('challenge_id')->constrained()->cascadeOnDelete();
             $table->string('content', 450);
+            $table->boolean('wordpress')->default(false);
             $table->boolean('active')->default(false);
             $table->timestamps();
         });

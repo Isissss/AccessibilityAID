@@ -109,7 +109,7 @@
     @foreach($challenges as $challenge)
         <div class="challenge-container">
             <h3>Opdracht {{$challenge->challenge->id}} - {{$challenge->challenge->name}} ({{$challenge->score}}/5)</h3>
-            <span class="underTitle">Voltooid op <time>{{$challenge->completed_at->isoFormat('D/M/YY')}}</time></span><br><br>
+            <span class="underTitle">Voltooid op {{$challenge->completed_at?->isoFormat('D/M/YY')}} </span><br><br>
 
             <strong>Tips:</strong> <br>
             <table id="tips">
