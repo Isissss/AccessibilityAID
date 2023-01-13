@@ -40,28 +40,20 @@ class DatabaseSeeder extends Seeder
         $challenge = Challenge::create([
             'slug' => 'contrast',
             'name' => 'Contrast',
-            'description' => 'Opdracht met contrast problemen',
-            'goal' => 'Zoek de breedte filter op de website en klik er op',
+            'description' => 'Deze opdracht simuleert hoe iemand die kleurenblind is een webshop met te weinig contrast beleeft. Als u de opdracht start krijgt u een pagina te zien waarop u zo snel mogelijk een specifiek element moet vinden.',
+            'goal' => 'Zoek de breedte filter op de webshop en klik er op',
         ]);
 
         Challenge::create([
             'slug' => 'besturing',
-            'name' => 'besturing',
-            'description' => 'Opdracht met met tab navigatie',
-            'goal' => 'Navigeer naar element ... op de pagina',
+            'name' => 'Besturing',
+            'description' => 'Deze opdracht simuleert hoe iemand die geen muis kan gebruiken een webshop beleeft. Als u de opdracht start krijgt u een pagina te zien waarop u door middel van de TAB knop op uw toetsenbord de pagina moet navigeren een een specifiek element moet selecteren',
+            'goal' => 'Navigeer naar het element: Categorie 5',
         ]);
 
 
         $challenge->tips()->create(['content' => 'Dit is om te laten zien hoe een tip **eruit ziet**. Dit kunt u hier vinden: [Test](https://www.youtube.com/)']);
         $challenge->tips()->create(['content' => 'Op ** deze website ** check je hoe het zit met de contrast op uw website . Deze kleurentest vind je [hier](https://www.youtube.com/)']);
-
-
-        Challenge::create([
-            'slug' => 'test',
-            'name' => 'Test',
-            'description' => 'Test opdracht',
-            'goal' => 'Doe iets',
-        ]);
 
     }
 }

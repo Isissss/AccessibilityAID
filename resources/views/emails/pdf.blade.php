@@ -90,7 +90,7 @@
 </head>
 <body>
 <header>
-    <img src="https://www.accessibility.nl/themes/sa/images/logo-social.png" class="logo" alt="Accessibility Logo">
+    <h2 style="font-weight: bold; padding: 5px;"> Accessibility </h2>
 </header>
 <div style="padding:25px; background-color:white; color:black;">
     <h1>Rapport -

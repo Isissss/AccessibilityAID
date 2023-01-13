@@ -73,13 +73,14 @@
             <div class="col">
                 <h2>Voorbeelden</h2>
                 <hr class="mt-2 mb-3"/>
-                <div class="row">
+                <div class="row py-2">
                     Voorbeeld van een toegankelijke website waar het contrast goed is:
-                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example.png')}}"
+                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example_good.png')}}"
                          alt="Voorbeeld van toegankelijke website">
                 </div>
-                <div class="row border border-danger">
-                    << Hier komen voorbeeld 2 >>
+                <div class="row">
+                    Voorbeeld van een niet toegankelijke website waar het contrast slecht is:
+                    <img src="{{Vite::asset('resources/images/contrast_example_bad.png')}}" alt="">
                 </div>
             </div>
 
@@ -145,13 +146,15 @@
                             </label>
                         </div>
                         <input type="hidden" name="rating" id="rating" value="">
+                        <input type="hidden" name="feedback" id="feedback" value="">
                     </form>
                 </div>
             </div>
             <div class="col">
                 <h2>Feedback voor ons</h2>
                 <hr class="mt-2 mb-3"/>
-
+                <label for="feedback_field">Laat hier feedback achter</label>
+                <textarea  class="w-100 h-50" name="feedback_field" id="feedback_field"> </textarea>
             </div>
 
         </div>

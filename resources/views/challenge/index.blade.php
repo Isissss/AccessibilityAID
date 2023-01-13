@@ -9,7 +9,7 @@
             </div>
         @endif
         <div class="d-flex justify-content-end">
-            <a href="{{route('send-rapport')}}" class="btn btn-success mb-2 @if(!(auth()->user()->completed_challenges->count() >= 1)) disabled @endif">@if(!(auth()->user()->completed_challenges->count() >= 1)) Je hebt nog geen opdrachten voltooid @else Stuur rapport op @endif</a>
+            <a href="{{route('download-rapport')}}" class="btn btn-success mb-2 @if(!(auth()->user()->completed_challenges->count() >= 1)) disabled @endif">@if(!(auth()->user()->completed_challenges->count() >= 1)) Je hebt nog geen opdrachten voltooid @else Stuur rapport op @endif</a>
         </div>
         <div class="card">
             <div class="card-header">
@@ -36,7 +36,7 @@
     </div>
 
     <script>
-        apiurl = "http://127.0.0.1:8000/api/challenge/"
-        challengeRoute = 'http://127.0.0.1:8000/challenge/'
+        apiurl = "/api/challenge/"
+        challengeRoute = '/challenge/'
     </script>
 @endsection
