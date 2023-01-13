@@ -55,13 +55,5 @@ class DatabaseSeeder extends Seeder
         $challenge->tips()->create(['content' => 'Dit is om te laten zien hoe een tip **eruit ziet**. Dit kunt u hier vinden: [Test](https://www.youtube.com/)']);
         $challenge->tips()->create(['content' => 'Op ** deze website ** check je hoe het zit met de contrast op uw website . Deze kleurentest vind je [hier](https://www.youtube.com/)']);
 
-
-        Challenge::create([
-            'slug' => 'test',
-            'name' => 'Test',
-            'description' => 'Test opdracht',
-            'goal' => 'Doe iets',
-        ]);
-
     }
 }
