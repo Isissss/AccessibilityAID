@@ -11,7 +11,8 @@ export default defineConfig({
                 'resources/js/challenge.js',
                 'resources/js/challengeForm.js',
                 'resources/js/finishedChallenge.js',
-                "resources/images/contrast_example.png"
+                'resources/images/contrast_example_good.png',
+                'resources/images/contrast_example_bad.png'
 
             ],
             refresh: true,
