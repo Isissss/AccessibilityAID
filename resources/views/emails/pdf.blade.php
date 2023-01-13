@@ -84,8 +84,9 @@
 </style>
 
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
+    <meta charset="UTF-8">
     <title>Accessibility</title>
 </head>
 <body>
@@ -110,20 +111,14 @@
         <div class="challenge-container">
             <h3>Opdracht {{$challenge->challenge->id}} - {{$challenge->challenge->name}} ({{$challenge->score}}/5)</h3>
             <span class="underTitle">Voltooid op {{$challenge->completed_at?->isoFormat('D/M/YY')}} </span><br><br>
-
             <strong>Tips:</strong> <br>
-            <table id="tips">
+            <ul style="margin-top:0;width:100%">
                 @foreach($challenge->challenge->tips as $tip)
-
-                    <tr>
-                        <td><input type="checkbox" style="margin:0; padding:0;"/></td>
-                        <td style="width:100%;"> {!! Str::markdown($tip->content) !!} </td>
-                    </tr>
+                    <li style="padding:0;margin:0;width:100%">{!! Str::markdown($tip->content) !!} </li>
                 @endforeach
-            </table>
+            </ul>
         </div>
     @endforeach
-
 </div>
 
 <footer>
