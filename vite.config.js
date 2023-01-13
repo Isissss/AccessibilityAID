@@ -7,6 +7,11 @@ export default defineConfig({
             input: [
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/admin.js',
+                'resources/js/challenge.js',
+                'resources/js/challengeForm.js',
+                'resources/js/finishedChallenge.js',
+
             ],
             refresh: true,
         }),
