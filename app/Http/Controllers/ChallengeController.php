@@ -54,4 +54,4 @@ class ChallengeController extends Controller
 
         return view("challenge.challenges.{$challengeName}", compact('challenge'));
     }
-
+}
