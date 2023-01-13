@@ -36,7 +36,7 @@
     </div>
 
     <script>
-        apiurl = "http://127.0.0.1:8000/api/challenge/"
-        challengeRoute = 'http://127.0.0.1:8000/challenge/'
+        apiurl = "/api/challenge/"
+        challengeRoute = '/challenge/'
     </script>
 @endsection

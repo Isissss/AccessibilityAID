@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Server",
+        "username": "root",
+        "port": "22",
+        "beforeHooks": "",
+        "afterHooks": "cd ${BASE_PATH}/current && php artisan storage:link",
+        "path": "/var/www/html"
+    }
+]
