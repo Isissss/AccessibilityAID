@@ -6,10 +6,10 @@ Met deze applicatie krijg je als ondernemer inzicht in wat er fout kan gaan bij 
 
 Foto's:
 
-![Niet toegankelijke webshop](https://cdn.discordapp.com/attachments/1029813542876094495/1063417939837063229/image.png)
-![Foto hoofdscherm](https://cdn.discordapp.com/attachments/1029813542876094495/1063417939300204554/image.png)
-![Eindscherm opdracht](https://cdn.discordapp.com/attachments/616574155768332318/1063562388319780914/image.png)
-![Rapport](https://cdn.discordapp.com/attachments/616574155768332318/1063562630696013824/image.png)
+<img src="https://cdn.discordapp.com/attachments/1029813542876094495/1063417939837063229/image.png" alt="Niet toegankelijke webshop" width="550">
+<img src="https://cdn.discordapp.com/attachments/1029813542876094495/1063417939300204554/image.png" alt="Foto hoofdscherm" width="550">
+<img src="https://cdn.discordapp.com/attachments/616574155768332318/1063562388319780914/image.png" alt="Eindscherm opdracht"   width="550">
+<img src="https://cdn.discordapp.com/attachments/616574155768332318/1063562630696013824/image.png" alt="Rapport" width="550">
 
 Deze webapplicatie is gebouwd op het Laravel framework (PHP) en Javascript. 
 
