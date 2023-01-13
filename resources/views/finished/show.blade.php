@@ -146,13 +146,15 @@
                             </label>
                         </div>
                         <input type="hidden" name="rating" id="rating" value="">
+                        <input type="hidden" name="feedback" id="feedback" value="">
                     </form>
                 </div>
             </div>
             <div class="col">
                 <h2>Feedback voor ons</h2>
                 <hr class="mt-2 mb-3"/>
-
+                <label for="feedback_field">Laat hier feedback achter</label>
+                <textarea  class="w-100 h-50" name="feedback_field" id="feedback_field"> </textarea>
             </div>
 
         </div>

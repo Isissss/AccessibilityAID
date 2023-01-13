@@ -25,10 +25,13 @@ votingDiv.addEventListener('click', function (e) {
 
     document.getElementById('count').innerHTML = e.target.dataset.vote
     document.getElementById('rating').value = e.target.dataset.vote
+
 });
 
 document.getElementById('submitForm').addEventListener('click', function (e) {
     e.preventDefault()
+
+    document.getElementById('feedback').value = document.getElementById('feedback_field').value
     document.getElementById('finishForm').submit()
 
 

@@ -9,6 +9,10 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+
     public function challenge()
     {
         return $this->belongsTo(Challenge::class);
