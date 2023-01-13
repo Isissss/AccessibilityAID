@@ -14,7 +14,10 @@ class ProfileController extends Controller
      */
     public function index($id)
     {
-        //
+        if(auth()->id() != $id) {
+            abort(403);
+        }
+
         $results = CompletedChallenge::where('user_id', '=', $id)->get();
         return view('profile.index', compact('results'));
     }
