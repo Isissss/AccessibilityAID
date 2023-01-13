@@ -20,14 +20,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home', [ChallengeController::class, 'index'])->name('home');
+Route::get('/', [ChallengeController::class, 'index']);
 
-Route::get('/', function () {
-    return view('challenge.index');
-});
-
-Route::get('/home', function () {
-    return view('challenge.index');
-});
 
 Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
 Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
