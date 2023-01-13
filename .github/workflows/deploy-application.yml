@@ -121,7 +121,7 @@ jobs:
             ${{ matrix.server.beforeHooks }}
 
   activate-release:
-    name: "${{ matrix.server.name }}: Activate release"
+    name: "${{ matrix.server.name }}: Activate release 1"
     runs-on: ubuntu-latest
     needs: [ deploy, prepare-release-on-servers, run-before-hooks ]
     strategy:
