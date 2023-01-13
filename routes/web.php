@@ -22,8 +22,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('challenge.index');
 });
+
+Route::get('/home', function () {
+    return view('challenge.index');
+});
+
 Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
 Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
 
