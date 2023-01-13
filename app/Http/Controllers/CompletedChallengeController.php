@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Challenge;
 use App\Models\CompletedChallenge;
 use App\Models\PersonalFeedback;
+use App\Models\Review;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CompletedChallengeController extends Controller
@@ -49,7 +49,14 @@ class CompletedChallengeController extends Controller
     public function update(Request $request, CompletedChallenge $completedChallenge)
     {
         $attributes = $request->validate([
-            'rating' => 'nullable|integer|min:1|max:5'
+            'rating' => 'nullable|integer|min:1|max:5',
+            'feedback' => 'nullable|max:400'
+        ]);
+
+        Review::create([
+            'user_id' => auth()->id(),
+            'challenge_id' => $completedChallenge->challenge->id,
+            'content' => $attributes['feedback']
         ]);
 
         $completedChallenge->score = $attributes['rating'];
