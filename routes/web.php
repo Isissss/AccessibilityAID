@@ -20,14 +20,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', [ChallengeController::class, 'index'])->name('home');
-Route::get('/', [ChallengeController::class, 'index']);
 
-
-Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
-Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
 
 Route::middleware('auth')->group(function () {
+    Route::get('rapport-send', [RapportController::class, 'sendRapport'])->middleware('auth')->name('send-rapport');
+    Route::get('rapport-download', [RapportController::class, 'downloadRapport'])->middleware('auth')->name('download-rapport');
+    Route::get('/home', [ChallengeController::class, 'index'])->name('home');
+    Route::get('/', [ChallengeController::class, 'index']);
     Route::resource('/challenge', ChallengeController::class);
     Route::get('/challenge/{challenge:slug}', [ChallengeController::class, 'show'])->name('challenge.show');
     Route::get('/challenge/{challenge:slug}/finished', [CompletedChallengeController::class, 'show'])->name('completed-challenge.show');
@@ -40,18 +39,15 @@ Route::middleware('auth')->group(function () {
 
 auth::routes();
 
-
-Route::middleware(['auth','role_admin'])->group(function (){
+// Requires admin role
+Route::middleware(['auth', 'role_admin'])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('challenge', \App\Http\Controllers\admin\ChallengeController::class);
     });
     Route::patch('challenge/{challenge:id}/update-visibility', [\App\Http\Controllers\admin\ChallengeController::class, 'updateVisibility'])->name('admin.challenge.update-visibility');
-
     Route::resource('reviews', ReviewsController::class);
     Route::resource('adminTips', AdminTips::class);
-
     Route::post('reviews/search', [ReviewsController::class, 'search'])->name('reviews.search');
-
 });
 
 
