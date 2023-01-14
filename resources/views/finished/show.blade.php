@@ -86,14 +86,15 @@
 
         </div>
         <div class="align-content-center text-center py-4">
-            <h3>Hoe denkt u dat uw webshop scoort op dit onderdeel?</h3>
 
+            <h3>Hoe denkt u dat uw webshop scoort op dit onderdeel?</h3>
+            Klik op de sterren om uzelf een cijfer te geven
             <div id="voting">
-                <i class="far fa-star" data-vote="1"></i>
-                <i class="far fa-star" data-vote="2"></i>
-                <i class="far fa-star" data-vote="3"></i>
-                <i class="far fa-star" data-vote="4"></i>
-                <i class="far fa-star" data-vote="5"></i>
+                <i class="far fa-star" data-vote="1">1</i>
+                <i class="far fa-star" data-vote="2">2</i>
+                <i class="far fa-star" data-vote="3">3</i>
+                <i class="far fa-star" data-vote="4">4</i>
+                <i class="far fa-star" data-vote="5">5</i>
             </div>
             @error('rating')
             <div class="alert alert-danger">{{ $message }}</div>
