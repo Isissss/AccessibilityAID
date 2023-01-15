@@ -13,7 +13,7 @@
                             @csrf
                             @method('PATCH')
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Title</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">Titel</label>
                                 <div class="col-md-6">
                                     <input id="name"
                                            type="text"
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="goal" class="col-md-4 col-form-label text-md-end">Goal</label>
+                                <label for="goal" class="col-md-4 col-form-label text-md-end">Doel van de opdracht</label>
                                 <div class="col-md-6">
                                     <input id="goal"
                                            type="text"
@@ -72,14 +72,14 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="active" class="col-md-4 col-form-label text-md-end">Active</label>
+                                <label for="active" class="col-md-4 col-form-label text-md-end">Actief</label>
                                 <div class="col-md-6">
                                     <input type="radio" id="active" name="active" value="1"
                                            @if($challenge->active) checked @endif>
-                                    <label for="active">Yes</label><br>
+                                    <label for="active">Ja</label><br>
                                     <input type="radio" id="inactive" name="active" @if(!$challenge->active) checked
                                            @endif value="0">
-                                    <label for="inactive">No</label><br>
+                                    <label for="inactive">Nee</label><br>
                                     @error('active')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -97,7 +97,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary ">Submit</button>
+                            <button type="submit" class="btn btn-primary"> Opslaan </button>
                         </form>
                     </div>
                 </div>

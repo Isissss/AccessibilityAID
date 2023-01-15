@@ -16,7 +16,7 @@
                         <h2 class="px-3">Tips</h2>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#noWordpress"
-                                    type="button" role="tab" aria-controls="home" aria-selected="true">Geen Wordpress
+                                    type="button" role="tab" aria-controls="home" aria-selected="true">Algemeen
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -75,18 +75,17 @@
                 <hr class="mt-2 mb-3"/>
                 <div class="row py-2">
                     Voorbeeld van een toegankelijke website waar het contrast goed is:
-                    <img class="ps-0" src="{{Vite::asset('resources/images/contrast_example_good.png')}}"
-                         alt="Voorbeeld van toegankelijke website">
+                    <img class="ps-0" src="https://i.imgur.com/RDCJX3Z.png"
+                         alt="Voorbeeld van toegankelijke webshop">
                 </div>
                 <div class="row">
                     Voorbeeld van een niet toegankelijke website waar het contrast slecht is:
-                    <img src="{{Vite::asset('resources/images/contrast_example_bad.png')}}" alt="">
+                    <img src="https://i.imgur.com/sDo1y9D.png" alt="Voorbeeld van ontoegankelijke webshop">
                 </div>
             </div>
 
         </div>
         <div class="align-content-center text-center py-4">
-
             <h3>Hoe denkt u dat uw webshop scoort op dit onderdeel?</h3>
             Klik op de sterren om uzelf een cijfer te geven
             <div id="voting">
@@ -99,8 +98,7 @@
             @error('rating')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-            Uw score: <span id="count">{{$completedChallenge?->score}}</span>/5
-
+            Uw score: <span id="count">{{$completedChallenge->score ?? 0}}</span>/5
         </div>
         <div class="row">
             <div class="col overflow-auto">
