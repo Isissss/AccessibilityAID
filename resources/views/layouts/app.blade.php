@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{route('challenge.index')}}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Accessibility') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -48,7 +48,7 @@
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registreren') }}</a>
                                 </li>
                             @endif
                         @else
@@ -58,12 +58,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a href="{{route('profile.index', auth()->user()->id)}}" class="dropdown-item">Resultaten overzicht</a>
+                                    <a href="{{route('profile.index', auth()->id())}}" class="dropdown-item">Resultaten overzicht</a>
                                     @admin
                                     <a class="dropdown-item" href="{{route('admin.challenge.index')}}">Admin portaal</a>
                                         <a class="dropdown-item" href="{{route('reviews.index')}}">Reviews</a>
                                     @endadmin
-                                    
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

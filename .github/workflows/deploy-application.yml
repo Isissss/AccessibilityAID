@@ -5,7 +5,7 @@ name: Deploy Application
 on:
   push:
     branches:
-      - test-deployment
+      - main
 
 # Authenticate to the the server via ssh
 # and run our deployment script

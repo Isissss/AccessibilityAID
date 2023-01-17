@@ -46,13 +46,12 @@ class ChallengeController extends Controller
         $completedChallenge->save();
         Session::put('completed_challenge_id', $completedChallenge->id);
 
-        if (!view::exists("challenge.challenges.{$challenge->name}")) {
+	$challengeName = strtolower($challenge->name);
+	 
+        if (!view::exists("challenge.challenges.{$challengeName}")) {
             abort(404);
         }
 
-        return view("challenge.challenges.{$challenge->name}", compact('challenge'));
+        return view("challenge.challenges.{$challengeName}", compact('challenge'));
     }
-
-
-
 }
