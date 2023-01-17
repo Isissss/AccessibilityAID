@@ -37,51 +37,51 @@ class DatabaseSeeder extends Seeder
             'wordpress'=>'0'
         ]);
         Tip::create([
-            'content' => 'Op **deze website** check je hoe het zit met de contrast op uw website . Deze kleurentest vind je [hier](https://webaim.org/resources/contrastchecker/)',
+            'content' => 'Op **deze website** check je hoe het zit met de contrast op uw website. Deze kleurentest vindt u [hier](https://webaim.org/resources/contrastchecker/)',
             'challenge_id' => '1'
         ]);
         Tip::create([
-            'content' => 'Op **deze website** krijg je 8 goed tips die je website kleurenblind vriendelijk maakt. Deze site vind je [hier](https://www.audioeye.com/post/8-ways-to-design-a-color-blind-friendly-website/)',
+            'content' => 'Op **deze website** krijg je 8 goede tips die je website kleurenblind vriendelijk maakt. Deze site vind je [hier](https://www.audioeye.com/post/8-ways-to-design-a-color-blind-friendly-website/)',
             'challenge_id' => '1'
         ]);
         Tip::create([
             'challenge_id' => '1',
-            'content' => 'Op **deze website** kan je een extensie downloaden voor wordpress die checkt of je site accessible is. Deze extensie vind je [hier](https://wordpress.org/plugins/accessibility-checker/)',
+            'content' => 'Op **deze website** kan je een extensie downloaden voor WordPress die checkt of je site accessible is. Deze extensie vind je [op de officiele WordPress plugins](https://wordpress.org/plugins/accessibility-checker/)',
             'wordpress'=>'1'
         ]);
         Tip::create([
             'challenge_id' => '1',
-            'content' => 'Op **deze website** kan je een extensie downloaden die je website gewoon in een keer accessible maakt. Dit extensie fixed contrast, font en veel meer. Deze extensie vind je [hier](https://wordpress.org/plugins/pojo-accessibility/)',
+            'content' => 'Op **deze website** kan je een extensie downloaden die je in één keer laat zien hoe je webshop eruit zou zien als het toegankelijk was. Deze extensie zorgt ervoor dat contrast, fonts en veel meer in orde zijn. Deze extensie vind je [hier](https://wordpress.org/plugins/pojo-accessibility/)',
             'wordpress'=>'1'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Wat je op moet letten. Meeste mensen met een beperking gebruiken **TAB** om door de website te gaan dus het is handig om een visual te geven van waar je bent zodat ze weten wanneer ze ENTER moeten klikken',
+            'content' => 'De meeste mensen met een beperking gebruiken **TAB** om door de website te gaan dus het is handig om een visual te geven van waar je je bevindt zodat ze weten wanneer ze ENTER moeten klikken',
             'wordpress'=>'0'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Op **deze website** krijg je tips over navigatie en het verbeteren van invoervelden. Deze website vind je [hier](https://www.nngroup.com/articles/keyboard-accessibility/)',
+            'content' => 'Op **deze website** krijgt u tips over navigatie en het verbeteren van invoervelden. Deze website vindt u [hier](https://www.nngroup.com/articles/keyboard-accessibility/)',
             'wordpress'=>'0'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Op **deze website** krijg je tips over CSS en HTML om je website te verbeteren. Deze website vind je [hier](https://webdesign.tutsplus.com/articles/keyboard-accessibility-tips-using-html-and-css--cms-31966)',
+            'content' => 'Op **deze website** krijgt u tips over CSS en HTML om je website te verbeteren. Deze website vindt u [hier](https://webdesign.tutsplus.com/articles/keyboard-accessibility-tips-using-html-and-css--cms-31966)',
             'wordpress'=>'0'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Op **deze website** krijg je tips over navigatie en het verbeteren van invoervelden. Deze website vind je [hier](https://www.nngroup.com/articles/keyboard-accessibility/)',
+            'content' => 'Op **deze website** krijgt u tips over navigatie en het verbeteren van invoervelden. Deze website vindt u [hier](https://www.nngroup.com/articles/keyboard-accessibility/)',
             'wordpress'=>'0'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Op **deze website** krijg je de beste extensies om keyboard toegankelijkheid in uw website te integreren . Deze extensies vind je [hier](https://wordpress.org/plugins/tags/keyboard-navigation/)',
+            'content' => 'Op **deze website** krijgt u de beste extensies om keyboard toegankelijkheid in uw website te integreren. Deze extensies vindt u [hier](https://wordpress.org/plugins/tags/keyboard-navigation/)',
             'wordpress'=>'1'
         ]);
         Tip::create([
             'challenge_id' => '2',
-            'content' => 'Op **deze website** krijg je de beste extensies om keyboard toegankelijkheid in uw website te integreren . Deze extensies vind je [hier](https://wordpress.org/plugins/tags/keyboard-navigation/)',
+            'content' => 'Op **deze website** krijgt u  de beste extensies om keyboard toegankelijkheid in uw website te integreren. Deze extensies vindt u [hier](https://wordpress.org/plugins/tags/keyboard-navigation/)',
             'wordpress'=>'1'
         ]);
 
