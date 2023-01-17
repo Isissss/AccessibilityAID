@@ -12,7 +12,7 @@
                           action="{{route('admin.challenge.destroy', $challenge)}}">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-primary mb-2" onclick="return confirm('Are you sure?')">
+                        <button class="btn btn-primary mb-2" onclick="return confirm('Weet je het zeker?')">
                             Delete
                         </button>
                     </form>
@@ -25,9 +25,9 @@
                         <div class="fs-5 mb-2">
                             <span class="fw-bold">Slug:</span> {{$challenge->slug}}</div>
                         <div class="fs-5 mb-2">
-                            <span class="fw-bold">Goal:</span> {{$challenge->goal}}</div>
+                            <span class="fw-bold">Doel van de opdracht:</span> {{$challenge->goal}}</div>
                         <div class="fs-5 mb-2">
-                            <span class="fw-bold">Description:</span> {{$challenge->description}}</div>
+                            <span class="fw-bold">Omschrijving:</span> {{$challenge->description}}</div>
 
                         <div class="fs-5 mb-2">
                             <span class="fw-bold">Tips:</span>  </div>
@@ -43,7 +43,7 @@
                             </div>
 
                         <div class="fs-4 mt-4">
-                            <span class="fw-bold">Aantal keer gedaan:</span> <span class="badge rounded-pill bg-success"> {{$completed_count}} </span> </div>
+                            <span class="fw-bold">Aantal keer gestart:</span> <span class="badge rounded-pill bg-success"> {{$completed_count}} </span> </div>
                     </div>
                 </div>
             </div>
