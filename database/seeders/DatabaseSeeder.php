@@ -17,6 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //password = Gebruiker123
+        User::create([
+            'name' => 'Gebruiker',
+            'email' => 'gebruiker@gebruiker.com',
+            'password' => '$2y$10$GfSAw2yFvw//2033XKedWOCIWmAWriVZAHYDsL.WsrMZrMKnb0QmW',
+        ]);
+
+        //password = Gebruiker123
+        User::create([
+            'name' => 'Admin',
+            'admin' => true,
+            'email' => 'admin@gebruiker.com',
+            'password' => '$2y$10$GfSAw2yFvw//2033XKedWOCIWmAWriVZAHYDsL.WsrMZrMKnb0QmW',
+        ]);
 
         $challenge = Challenge::create([
             'slug' => 'contrast',
